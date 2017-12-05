@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/register"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/tshirt"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="44dp"
+        android:text="Shopping For Male"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="72dp" />
+
+    <ImageView
+        android:id="@+id/tshirt2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/shirt"
+
+        android:layout_alignTop="@+id/tshirt3"
+        android:layout_centerHorizontal="true" />
+    <ImageView
+        android:id="@+id/tshirt3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/shirt2"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp" />
+    <ImageView
+        android:id="@+id/tshirt4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/shirt3"
+        android:layout_alignTop="@+id/tshitr5"
+        android:layout_alignStart="@+id/tshirt7" />
+    <ImageView
+        android:id="@+id/tshitr5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/shirt4"
+        android:layout_below="@+id/tshirt"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="59dp" />
+    <ImageView
+        android:id="@+id/tshitr6"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/shirt5"
+        android:layout_alignTop="@+id/tshirt8"
+        android:layout_alignParentEnd="true" />
+    <ImageView
+        android:id="@+id/tshirt7"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/shirt6"
+        android:layout_alignTop="@+id/tshitr6"
+        android:layout_alignStart="@+id/tshirt2"
+        android:layout_marginStart="11dp" />
+    <ImageView
+        android:id="@+id/tshirt8"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/shirt7"
+        android:layout_below="@+id/tshitr5"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="47dp" />
+    <ImageView
+        android:id="@+id/tshirt9"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/shirt8"
+        android:layout_alignTop="@+id/tshirt2"
+        android:layout_alignParentEnd="true" />
+
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/shirt9"
+        android:layout_alignTop="@+id/tshirt4"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

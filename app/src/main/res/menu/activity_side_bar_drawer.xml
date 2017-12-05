@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_grocery"
+            android:icon="@drawable/grocery"
+            android:title="Grocery Product" />
+        <item
+            android:id="@+id/nav_formale"
+            android:icon="@drawable/shirt"
+            android:title="Shopping For Male" />
+        <item
+            android:id="@+id/nav_forfemale"
+            android:icon="@drawable/kurti"
+            android:title="Shopping For Female" />
+        <item
+            android:id="@+id/nav_electronics"
+            android:icon="@drawable/electronics"
+            android:title="Electronics" />
+        <item
+            android:id="@+id/nav_ornaments"
+            android:icon="@drawable/necless"
+            android:title="Ornaments" />
+        <item
+            android:id="@+id/nav_kitchen"
+            android:icon="@drawable/ic_kitchen"
+            android:title="Home and Kitchen" />
+        <item
+            android:id="@+id/nav_notification"
+            android:title="Notification"
+            android:icon="@drawable/ic_notifications"/>
+        <item
+            android:id="@+id/nav_editprofile"
+            android:title="Edit Profile"
+            android:icon="@drawable/ic_edit"/>
+        <item
+            android:id="@+id/nav_logout"
+            android:title="Logout"
+            android:icon="@drawable/ic_power"/>
+
+
+    </group>
+
+
+</menu>

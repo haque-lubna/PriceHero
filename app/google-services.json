@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "750124653696",
+    "firebase_url": "https://pricehero-38ade.firebaseio.com",
+    "project_id": "pricehero-38ade",
+    "storage_bucket": "pricehero-38ade.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:750124653696:android:1ce14aa370132c6c",
+        "android_client_info": {
+          "package_name": "com.lubnasweety.pricehero"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "750124653696-hur25tarp59hiqh1809e3c2enbioqdn0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRqK1ne1FK4Vt1Uzo8tu1zNGOgSIZimUw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

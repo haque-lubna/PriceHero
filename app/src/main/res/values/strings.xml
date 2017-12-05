@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">PriceHero</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_in">sign in</string>
+    <string name="textview">TextView</string>
+    <string name="password">password</string>
+    <string name="login">login</string>
+    <string name="button">Button</string>
+
+    <string name="choose">choose your role</string>
+    <string name="passwordstring">password</string>
+
+    <string-array name="Role">
+        <item>Buyer</item>
+        <item>Seller</item>
+        <item>Admin</item>
+    </string-array>
+    <string name="title_activity_side_bar">SideBar</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_seller_home">SellerHome</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>

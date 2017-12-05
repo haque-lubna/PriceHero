@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/grocery"
+        android:title="Grocery item">
+
+    </item>
+
+    <item
+        android:id="@+id/formale"
+        android:title="Shopping for male">
+
+    </item>
+    <item
+        android:id="@+id/forfemale"
+        android:title="Shopping for female">
+
+    </item>
+    <item
+        android:id="@+id/Elecctronics"
+        android:title="Electronics">
+
+    </item>
+    <item
+        android:id="@+id/Ornaments"
+        android:title="Ornaments">
+
+    </item>
+    <item
+        android:id="@+id/homekitchen"
+        android:title="Home and Kitchen">
+
+    </item>
+    <item
+        android:id="@+id/cart"
+        android:icon="@drawable/ic_shopping_cart"
+        android:title="Cart"
+        app:showAsAction="always">
+
+    </item>
+    <item
+        android:id="@+id/notification"
+        android:icon="@drawable/ic_notifications"
+        android:title="Notification"
+        app:showAsAction="always">
+
+    </item>
+    <item
+        android:id="@+id/editprofilebuyer"
+        android:icon="@drawable/ic_edit"
+        android:title="Edit Profile">
+
+    </item>
+
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_power"
+        android:title="Logout">
+
+    </item>
+</menu>

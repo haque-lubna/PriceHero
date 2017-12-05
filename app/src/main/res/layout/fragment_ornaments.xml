@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/register"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="51dp"
+        android:text="Ornamments"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/necklace"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="25dp"
+        app:srcCompat="@drawable/har"
+        android:layout_below="@+id/textView9"
+        android:layout_toEndOf="@+id/bala" />
+
+    <ImageView
+        android:id="@+id/bala"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        app:srcCompat="@drawable/bangle"
+        android:layout_alignTop="@+id/necklace"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/earrings"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        app:srcCompat="@drawable/earring"
+        android:layout_below="@+id/necklace"
+        android:layout_toStartOf="@+id/angti"
+        android:layout_marginTop="35dp" />
+
+    <ImageView
+        android:id="@+id/borohar"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_alignTop="@+id/necklace"
+        android:layout_toEndOf="@+id/necklace"
+        app:srcCompat="@drawable/necless" />
+
+    <ImageView
+        android:id="@+id/angti"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        app:srcCompat="@drawable/angti"
+        android:layout_alignTop="@+id/earrings"
+        android:layout_toEndOf="@+id/goina"
+        android:layout_alignStart="@+id/textView9" />
+
+    <ImageView
+        android:id="@+id/chikonchuri"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        app:srcCompat="@drawable/chikonchuri"
+        android:layout_alignTop="@+id/angti"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:id="@+id/goina"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        app:srcCompat="@drawable/goina"
+        android:layout_alignTop="@+id/motachuri"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/motachuri"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/motachuri"
+        android:layout_below="@+id/angti"
+        android:layout_toEndOf="@+id/goina" />
+
+    <ImageView
+        android:id="@+id/duihar"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        app:srcCompat="@drawable/duihar"
+        android:layout_alignTop="@+id/motachuri"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>

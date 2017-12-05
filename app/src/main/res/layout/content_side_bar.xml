@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@drawable/homepage"
+    tools:context="com.lubnasweety.pricehero.old.SideBar"
+    tools:showIn="@layout/app_bar_side_bar">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imageView3"
+        android:layout_marginEnd="52dp"
+        android:layout_marginRight="52dp"
+        app:srcCompat="@drawable/cart"
+        tools:ignore="ContentDescription,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/AllCategories"
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:text="All Categories"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        tools:text="All Categories"
+        tools:ignore="HardcodedText,RtlHardcoded"
+        android:layout_below="@+id/imageView4"
+        android:layout_alignStart="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grocery"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        tools:text="Grocery"
+        android:layout_alignBottom="@+id/AllCategories"
+        android:layout_alignLeft="@+id/AllCategories"
+        android:layout_alignStart="@+id/AllCategories"
+        android:layout_marginBottom="10dp"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <ImageView
+        android:id="@+id/iv_Oil"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/oil"
+        android:layout_marginTop="9dp"
+        tools:ignore="ContentDescription,RtlHardcoded"
+        android:layout_below="@+id/AllCategories"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="13dp" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/rice"
+        android:layout_marginLeft="31dp"
+        tools:ignore="ContentDescription,RtlHardcoded"
+        android:layout_alignTop="@+id/imageView8"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="7dp" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/milk"
+        android:layout_marginRight="18dp"
+        tools:ignore="ContentDescription,RtlHardcoded"
+        android:layout_above="@+id/textView4"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Electronics"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        tools:text="Electronics"
+        tools:ignore="HardcodedText,RtlHardcoded"
+        android:layout_below="@+id/iv_Oil"
+        android:layout_alignStart="@+id/AllCategories" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/laptop"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        tools:ignore="ContentDescription,RtlHardcoded" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/phone"
+        android:layout_alignTop="@+id/imageView9"
+        android:layout_alignLeft="@+id/imageView7"
+        android:layout_alignStart="@+id/imageView7"
+        tools:ignore="ContentDescription,RtlHardcoded" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/camera"
+        android:layout_alignTop="@+id/imageView10"
+        android:layout_alignLeft="@+id/imageView8"
+        android:layout_alignStart="@+id/imageView8"
+        tools:ignore="ContentDescription,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:text="Ornaments"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        tools:text="Ornaments"
+        tools:ignore="HardcodedText,RtlHardcoded"
+        android:layout_below="@+id/imageView9"
+        android:layout_alignStart="@+id/textView4" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/necless"
+        tools:ignore="ContentDescription"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/earring"
+        tools:ignore="ContentDescription"
+        android:layout_alignTop="@+id/imageView12"
+        android:layout_alignStart="@+id/imageView10" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/har"
+        tools:ignore="ContentDescription"
+        android:layout_alignTop="@+id/imageView13"
+        android:layout_alignStart="@+id/imageView11" />
+    <FrameLayout
+        android:id="@+id/screen_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </FrameLayout>
+
+
+</RelativeLayout>
