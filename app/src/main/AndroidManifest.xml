@@ -33,7 +33,8 @@
             android:label="@string/title_activity_seller_home" />
         <activity android:name=".EditProfile" />
         <activity android:name=".Selection" />
-        <activity android:name=".GroceryActivity"></activity>
+        <activity android:name=".GroceryActivity" />
+        <activity android:name=".Buyer_Notification"></activity>
     </application>
 
 </manifest>
