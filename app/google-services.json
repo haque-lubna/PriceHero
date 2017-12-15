@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "750124653696",
-    "firebase_url": "https://pricehero-38ade.firebaseio.com",
-    "project_id": "pricehero-38ade",
-    "storage_bucket": "pricehero-38ade.appspot.com"
+    "project_number": "1029905295082",
+    "firebase_url": "https://pricehero-ls.firebaseio.com",
+    "project_id": "pricehero-ls",
+    "storage_bucket": "pricehero-ls.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:750124653696:android:1ce14aa370132c6c",
+        "mobilesdk_app_id": "1:1029905295082:android:1ce14aa370132c6c",
         "android_client_info": {
           "package_name": "com.lubnasweety.pricehero"
         }
       },
       "oauth_client": [
         {
-          "client_id": "750124653696-hur25tarp59hiqh1809e3c2enbioqdn0.apps.googleusercontent.com",
+          "client_id": "1029905295082-ffp5jntgn62hjeo52e6qa99gjn8778u1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lubnasweety.pricehero",
+            "certificate_hash": "00946706cffdeda532adf49daa08353005afd54b"
+          }
+        },
+        {
+          "client_id": "1029905295082-p2r5c2540dccl074ksfnvsbtnrdd37eg.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDRqK1ne1FK4Vt1Uzo8tu1zNGOgSIZimUw"
+          "current_key": "AIzaSyCXVQINT4EFe8GcwI4qPCPp0Ac5PgBSz84"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1029905295082-p2r5c2540dccl074ksfnvsbtnrdd37eg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
