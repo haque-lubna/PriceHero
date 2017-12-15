@@ -1,13 +1,19 @@
 package com.lubnasweety.pricehero;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.lubnasweety.pricehero.backEnd.DataHelper;
 
 
 /**
@@ -27,6 +33,21 @@ public class PostFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    static final int RC_PHOTO_PICKER = 1;
+
+    DataHelper dataHelper;
+    EditText productName;
+    EditText productCategory;
+    EditText storeName;
+    EditText storeLocation;
+    EditText productPrice;
+    EditText productQuantity;
+    EditText productOffers;
+    TextView imageName;
+    Button btnChooseImage;
+    Button btnSubmit;
+    String imagePath;
 
     private OnFragmentInteractionListener mListener;
 
@@ -59,14 +80,39 @@ public class PostFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        dataHelper = DataHelper.getInstance();
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_post, container, false);
+        View v = inflater.inflate(R.layout.fragment_post, container, false);
+
+        productName = (EditText) v.findViewById(R.id.productName);
+        productCategory = (EditText) v.findViewById(R.id.productCategory);
+        storeName = (EditText) v.findViewById(R.id.storeName);
+        storeLocation = (EditText) v.findViewById(R.id.storeLocation);
+        productPrice  = (EditText) v.findViewById(R.id.productPrice);
+        productQuantity = (EditText) v.findViewById(R.id.productQuantity);
+        productOffers = (EditText) v.findViewById(R.id.productOffers);
+        imageName = (TextView) v.findViewById(R.id.imageName);
+        btnChooseImage = (Button) v.findViewById(R.id.btnChooseImage);
+        btnSubmit = (Button) v.findViewById(R.id.btnSubmit);
+
+        btnChooseImage.setOnClickListener(e->{
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.setType("image/jpeg");
+            intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+            startActivityForResult(Intent.createChooser(intent, "Complete action using"), RC_PHOTO_PICKER);
+        });
+
+        return v;
     }
+
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
