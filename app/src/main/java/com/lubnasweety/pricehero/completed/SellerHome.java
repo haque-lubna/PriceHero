@@ -77,4 +77,6 @@ public class SellerHome extends AppCompatActivity implements HomeFragment.HomeFr
         startActivity(loginIntent);
         Toast.makeText(this, "Logged Out", Toast.LENGTH_SHORT).show();
     }
+
+
 }

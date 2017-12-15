@@ -15,6 +15,9 @@ import android.widget.Toast;
 
 import com.lubnasweety.pricehero.backEnd.DataHelper;
 
+import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_OK;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -39,6 +42,7 @@ public class PostFragment extends Fragment {
     DataHelper dataHelper;
     EditText productName;
     EditText productCategory;
+    EditText productDescription;
     EditText storeName;
     EditText storeLocation;
     EditText productPrice;
@@ -48,6 +52,8 @@ public class PostFragment extends Fragment {
     Button btnChooseImage;
     Button btnSubmit;
     String imagePath;
+    View v;
+    Uri selectedImageUri;
 
     private OnFragmentInteractionListener mListener;
 
@@ -89,10 +95,11 @@ public class PostFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_post, container, false);
+        v = inflater.inflate(R.layout.fragment_post, container, false);
 
         productName = (EditText) v.findViewById(R.id.productName);
         productCategory = (EditText) v.findViewById(R.id.productCategory);
+        productDescription = (EditText) v.findViewById(R.id.productDescription);
         storeName = (EditText) v.findViewById(R.id.storeName);
         storeLocation = (EditText) v.findViewById(R.id.storeLocation);
         productPrice  = (EditText) v.findViewById(R.id.productPrice);
@@ -109,10 +116,23 @@ public class PostFragment extends Fragment {
             startActivityForResult(Intent.createChooser(intent, "Complete action using"), RC_PHOTO_PICKER);
         });
 
+
+
         return v;
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode==RC_PHOTO_PICKER) {
+            if(resultCode==RESULT_OK) {
+                selectedImageUri = data.getData();
+                imageName.setText(selectedImageUri.getLastPathSegment());
 
+            } else if(resultCode==RESULT_CANCELED) {
+                Toast.makeText(getActivity(), "Image Choosing Failed", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
