@@ -1,4 +1,4 @@
-package com.lubnasweety.pricehero;
+package com.lubnasweety.pricehero.completed;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.lubnasweety.pricehero.R;
 
 
 /**

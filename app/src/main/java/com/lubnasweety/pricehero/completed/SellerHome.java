@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.lubnasweety.pricehero.EditProfile;
-import com.lubnasweety.pricehero.HomeFragment;
 import com.lubnasweety.pricehero.NotificationFragment;
 import com.lubnasweety.pricehero.PostFragment;
 import com.lubnasweety.pricehero.R;
