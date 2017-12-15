@@ -42,7 +42,7 @@ public class DataHelper {
 
 
     public UploadTask uploadImage(Uri uri) {
-        return storage.putFile(uri);
+        return storage.child("images").putFile(uri);
     }
 
     public String getUid() {

@@ -141,7 +141,7 @@ public class PostFragment extends Fragment {
             productQuantityText = productQuantity.getText().toString();
             productOffersText = productOffers.getText().toString();
 
-
+            dialog = new ProgressDialog(getActivity());
             dialog.setTitle("Uploading Image...");
             dialog.show();
             UploadTask uploading = dataHelper.uploadImage(selectedImageUri);
