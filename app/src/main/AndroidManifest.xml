@@ -11,15 +11,15 @@
         android:roundIcon="@mipmap/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".starting">
+        <activity android:name=".completed.starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login" />
-        <activity android:name=".register" />
+        <activity android:name=".completed.login" />
+        <activity android:name=".completed.register" />
         <activity android:name=".old.Details" />
         <activity android:name=".Homepage" />
         <activity android:name=".Booking" />
@@ -29,10 +29,10 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".ItemDetails" />
         <activity
-            android:name=".SellerHome"
+            android:name=".completed.SellerHome"
             android:label="@string/title_activity_seller_home" />
         <activity android:name=".EditProfile" />
-        <activity android:name=".Selection" />
+        <activity android:name=".completed.Selection" />
         <activity android:name=".GroceryActivity" />
         <activity android:name=".Buyer_Notification"></activity>
     </application>

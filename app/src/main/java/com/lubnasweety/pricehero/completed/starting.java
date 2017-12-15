@@ -1,10 +1,12 @@
-package com.lubnasweety.pricehero;
+package com.lubnasweety.pricehero.completed;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.lubnasweety.pricehero.R;
 
 import static java.lang.Thread.sleep;
 
@@ -27,6 +29,7 @@ public class starting extends AppCompatActivity {
             public void onClick(View v){
 
                 Intent i = new Intent(starting.this,login.class);
+                finish();
                 startActivity(i);
             }
         });
@@ -41,6 +44,7 @@ public class starting extends AppCompatActivity {
                         @Override
                         public void run() {
                             Intent i = new Intent(starting.this,login.class);
+                            finish();
                             startActivity(i);
                         }
                     });

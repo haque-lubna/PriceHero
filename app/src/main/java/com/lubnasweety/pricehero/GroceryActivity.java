@@ -1,8 +1,8 @@
 package com.lubnasweety.pricehero;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.lubnasweety.pricehero.backEnd.DataHelper;
 import com.lubnasweety.pricehero.backEnd.productDetails;
 
 public class GroceryActivity extends AppCompatActivity {
@@ -26,8 +25,8 @@ public class GroceryActivity extends AppCompatActivity {
 
 
         groceryGrid = (GridView)findViewById(R.id.groceryGrid);
-        GridAdapterProducts gridAdapterGrocery = new GridAdapterProducts(this, DataHelper.getNamesGrocery(), DataHelper.getImagesGrocery());
-        groceryGrid.setAdapter(gridAdapterGrocery);
+        //GridAdapterProducts gridAdapterGrocery = new GridAdapterProducts(this, DataHelper.getNamesGrocery(), DataHelper.getImagesGrocery());
+        //groceryGrid.setAdapter(gridAdapterGrocery);
 
 
         goToItemDetails = new Intent(GroceryActivity.this, ItemDetails.class);

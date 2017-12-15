@@ -13,8 +13,8 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.lubnasweety.pricehero.backEnd.DataHelper;
 import com.lubnasweety.pricehero.backEnd.productDetails;
+import com.lubnasweety.pricehero.completed.login;
 
 public class Homepage extends AppCompatActivity {
 
@@ -36,16 +36,16 @@ public class Homepage extends AppCompatActivity {
 
 
         ornamentsGridView = (GridView) findViewById(R.id.ornamentsproducts);
-        GridAdapterProducts gridAdapterOrnaments = new GridAdapterProducts(this, DataHelper.getNames("ornaments"), DataHelper.getImages("ornaments"));
-        ornamentsGridView.setAdapter(gridAdapterOrnaments);
+//        GridAdapterProducts gridAdapterOrnaments = new GridAdapterProducts(this, DataHelper.getNames("ornaments"), DataHelper.getImages("ornaments"));
+//        ornamentsGridView.setAdapter(gridAdapterOrnaments);
 
         groceryGridView = (GridView) findViewById(R.id.groceryproducts);
-        GridAdapterProducts gridAdapterGrocery = new GridAdapterProducts(this, DataHelper.getNames("grocery"), DataHelper.getImages("grocery"));
-        groceryGridView.setAdapter(gridAdapterGrocery);
+//        GridAdapterProducts gridAdapterGrocery = new GridAdapterProducts(this, DataHelper.getNames("grocery"), DataHelper.getImages("grocery"));
+//        groceryGridView.setAdapter(gridAdapterGrocery);
 
         electronicsGridView = (GridView) findViewById(R.id.electronicsproducts);
-        GridAdapterProducts gridAdapterElectronics = new GridAdapterProducts(this, DataHelper.getNames("electronics"), DataHelper.getImages("electronics"));
-        electronicsGridView.setAdapter(gridAdapterElectronics);
+//        GridAdapterProducts gridAdapterElectronics = new GridAdapterProducts(this, DataHelper.getNames("electronics"), DataHelper.getImages("electronics"));
+//        electronicsGridView.setAdapter(gridAdapterElectronics);
 
         goToItemDetails = new Intent(Homepage.this, ItemDetails.class);
 

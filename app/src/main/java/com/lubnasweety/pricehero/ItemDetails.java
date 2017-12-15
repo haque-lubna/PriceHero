@@ -9,10 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lubnasweety.pricehero.backEnd.DataHelper;
-import com.lubnasweety.pricehero.backEnd.DetailEachShop;
 import com.lubnasweety.pricehero.backEnd.productDetails;
-
-import java.util.ArrayList;
 
 public class ItemDetails extends AppCompatActivity {
     productDetails details;
@@ -44,13 +41,13 @@ public class ItemDetails extends AppCompatActivity {
 
         shopList = (ListView) findViewById(R.id.shopList);
 
-        DataHelper d = new DataHelper();
+        DataHelper d = DataHelper.getInstance();
 
-        ArrayList<DetailEachShop> list = d.getShopList(details);
+        //ArrayList<DetailEachShop> list = d.getShopList(details);
 
-        ShopListAdapter shopListAdapter = new ShopListAdapter(this, list);
+        //ShopListAdapter shopListAdapter = new ShopListAdapter(this, list);
 
-        shopList.setAdapter(shopListAdapter);
+        //shopList.setAdapter(shopListAdapter);
 
 
     }

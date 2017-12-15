@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#4f634b"
-    tools:context="com.lubnasweety.pricehero.Selection">
+    tools:context="com.lubnasweety.pricehero.completed.Selection">
 
     <ImageView
         android:id="@+id/logo"

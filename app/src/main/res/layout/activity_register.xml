@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#b199a3"
-    tools:context="com.lubnasweety.pricehero.register">
+    android:background="#ebfffd"
+    tools:context="com.lubnasweety.pricehero.completed.register">
 
 <!--<?xml version="1.0" encoding="utf-8"?>-->
 <!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
@@ -14,7 +14,7 @@
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="match_parent"-->
     <!--android:background="@drawable/register"-->
-    <!--tools:context="com.lubnasweety.pricehero.register">-->
+    <!--tools:contecom.lubnasweety.pricehero.completed.registerster">-->
 
     <!--<EditText-->
         <!--android:id="@+id/fullName"-->

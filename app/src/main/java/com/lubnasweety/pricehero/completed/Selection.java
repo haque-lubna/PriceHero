@@ -1,10 +1,13 @@
-package com.lubnasweety.pricehero;
+package com.lubnasweety.pricehero.completed;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.lubnasweety.pricehero.Homepage;
+import com.lubnasweety.pricehero.R;
 
 public class Selection extends AppCompatActivity {
 

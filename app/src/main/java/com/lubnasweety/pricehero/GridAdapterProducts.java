@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.lubnasweety.pricehero.backEnd.DataHelper;
 import com.lubnasweety.pricehero.backEnd.productDetails;
 
 /**
@@ -36,7 +35,7 @@ public class GridAdapterProducts extends BaseAdapter {
     @Override
     public Object getItem(int position) {
         String name = productNames[position];
-        String company = DataHelper.getCompany(name);
+        String company = "Radhuni";//DataHelper.getCompany(name);
         Integer img = image[position];
 
         productDetails it = new productDetails(name, company, img);
