@@ -1,5 +1,7 @@
 package com.lubnasweety.pricehero.backEnd;
 
+import android.net.Uri;
+
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -8,6 +10,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 /**
  * Created by Asus on 11/23/2017.
@@ -38,6 +41,23 @@ public class DataHelper {
     }
 
 
+    public UploadTask uploadImage(Uri uri) {
+        return storage.putFile(uri);
+    }
+
+    public String getUid() {
+        return  mFirebaseAuth.getCurrentUser().getUid();
+    }
+
+    public void pushProduct(String productName, String productCategory, String productDescription, String storeName, String storeLocation, String productPrice, String productQuantity, String productOffers, String imagePath) {
+        DatabaseReference product = database.child(productCategory).child(productName);
+        product.child("name").setValue(productName);
+        product.child("image").setValue(imagePath);
+        product.child("category").setValue(productCategory);
+
+        Shop shop = new Shop(productDescription, storeName, storeLocation, productQuantity, productOffers, Double.parseDouble(productPrice), getUid(), imagePath);
+        product.child("shops").push().setValue(shop);
+    }
 
     private DataHelper() {
         mFirebseDatabase = FirebaseDatabase.getInstance();

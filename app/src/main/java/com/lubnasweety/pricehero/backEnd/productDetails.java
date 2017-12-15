@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 public class productDetails implements Serializable {
     private String productName;
-    private String companyName;
+    private String productDescription;
     private Integer imagetName;
 
     public String getProductName() {
@@ -19,12 +19,12 @@ public class productDetails implements Serializable {
         this.productName = productName;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public String getProductDescription() {
+        return productDescription;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
     }
 
     public Integer getImagetName() {
@@ -38,9 +38,9 @@ public class productDetails implements Serializable {
     public productDetails() {
     }
 
-    public productDetails(String productName, String companyName, Integer imagetName) {
+    public productDetails(String productName, String productDescription, Integer imagetName) {
         this.productName = productName;
-        this.companyName = companyName;
+        this.productDescription = productDescription;
         this.imagetName = imagetName;
     }
 }

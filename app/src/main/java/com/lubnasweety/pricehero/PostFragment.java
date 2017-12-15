@@ -1,5 +1,6 @@
 package com.lubnasweety.pricehero;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.UploadTask;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
 
 import static android.app.Activity.RESULT_CANCELED;
@@ -51,9 +54,22 @@ public class PostFragment extends Fragment {
     TextView imageName;
     Button btnChooseImage;
     Button btnSubmit;
-    String imagePath;
+
     View v;
     Uri selectedImageUri;
+    ProgressDialog dialog;
+
+    //store them in database
+    String imagePath;
+    String productNameText;
+    String productCategoryText;
+    String productDescriptionText;
+    String storeNameText;
+    String storeLocationText;
+    String productPriceText;
+    String productQuantityText;
+    String productOffersText;
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -116,7 +132,33 @@ public class PostFragment extends Fragment {
             startActivityForResult(Intent.createChooser(intent, "Complete action using"), RC_PHOTO_PICKER);
         });
 
+        btnSubmit.setOnClickListener(e->{
+            productNameText = productName.getText().toString();
+            productCategoryText = productCategory.getText().toString();
+            productDescriptionText = productDescription.getText().toString();
+            storeNameText = storeName.getText().toString();
+            storeLocationText = storeLocation.getText().toString();
+            productQuantityText = productQuantity.getText().toString();
+            productOffersText = productOffers.getText().toString();
 
+
+            dialog.setTitle("Uploading Image...");
+            dialog.show();
+            UploadTask uploading = dataHelper.uploadImage(selectedImageUri);
+            uploading.addOnFailureListener(t->{
+                dialog.cancel();
+                Toast.makeText(getActivity(), "Uploading failed...", Toast.LENGTH_LONG).show();
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    imagePath = taskSnapshot.getDownloadUrl().toString();
+                    dialog.setTitle("Uploading product info...");
+                    dataHelper.pushProduct(productNameText, productCategoryText, productDescriptionText, storeNameText, storeLocationText, productPriceText, productQuantityText, productOffersText, imagePath);
+                    dialog.cancel();
+                    Toast.makeText(getActivity(), "Product added...", Toast.LENGTH_LONG).show();
+                }
+            });
+        });
 
         return v;
     }

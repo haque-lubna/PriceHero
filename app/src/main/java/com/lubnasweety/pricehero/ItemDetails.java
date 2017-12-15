@@ -35,7 +35,7 @@ public class ItemDetails extends AppCompatActivity {
 
 
         productName.setText(details.getProductName());
-        productCompany.setText(details.getCompanyName());
+        productCompany.setText(details.getProductDescription());
         productImage.setImageResource(details.getImagetName());
 
 
