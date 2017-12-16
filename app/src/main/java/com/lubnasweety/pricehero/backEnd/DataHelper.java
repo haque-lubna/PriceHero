@@ -18,11 +18,11 @@ import com.google.firebase.storage.UploadTask;
 
 public class DataHelper {
     private static final DataHelper instance = new DataHelper();
-    FirebaseDatabase mFirebseDatabase;
-    DatabaseReference database;
-    FirebaseAuth mFirebaseAuth;
-    FirebaseStorage mFirebaseStorage;
-    StorageReference storage;
+    private FirebaseDatabase mFirebseDatabase;
+    private DatabaseReference database;
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseStorage mFirebaseStorage;
+    private StorageReference storage;
 
     public static DataHelper getInstance() {
         return instance;
@@ -42,7 +42,7 @@ public class DataHelper {
 
 
     public UploadTask uploadImage(Uri uri) {
-        return storage.child("images").putFile(uri);
+        return storage.child("images").child(uri.getLastPathSegment()).putFile(uri);
     }
 
     public String getUid() {
@@ -50,7 +50,7 @@ public class DataHelper {
     }
 
     public void pushProduct(String productName, String productCategory, String productDescription, String storeName, String storeLocation, String productPrice, String productQuantity, String productOffers, String imagePath) {
-        DatabaseReference product = database.child(productCategory).child(productName);
+        DatabaseReference product = database.child("products").child(productCategory).child(productName);
         product.child("name").setValue(productName);
         product.child("image").setValue(imagePath);
         product.child("category").setValue(productCategory);

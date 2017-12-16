@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.UploadTask;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
 
@@ -138,6 +137,7 @@ public class PostFragment extends Fragment {
             productDescriptionText = productDescription.getText().toString();
             storeNameText = storeName.getText().toString();
             storeLocationText = storeLocation.getText().toString();
+            productPriceText = productPrice.getText().toString();
             productQuantityText = productQuantity.getText().toString();
             productOffersText = productOffers.getText().toString();
 
@@ -148,15 +148,14 @@ public class PostFragment extends Fragment {
             uploading.addOnFailureListener(t->{
                 dialog.cancel();
                 Toast.makeText(getActivity(), "Uploading failed...", Toast.LENGTH_LONG).show();
-            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+            }).addOnSuccessListener( taskSnapshot ->  {
                     imagePath = taskSnapshot.getDownloadUrl().toString();
                     dialog.setTitle("Uploading product info...");
                     dataHelper.pushProduct(productNameText, productCategoryText, productDescriptionText, storeNameText, storeLocationText, productPriceText, productQuantityText, productOffersText, imagePath);
                     dialog.cancel();
                     Toast.makeText(getActivity(), "Product added...", Toast.LENGTH_LONG).show();
-                }
+            }).addOnProgressListener( taskSnapshot ->  {
+                    dialog.setMessage("uploaded "+ taskSnapshot.getBytesTransferred() + " out of " + taskSnapshot.getTotalByteCount() +" bytes");
             });
         });
 
