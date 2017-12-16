@@ -1,0 +1,3 @@
+# PriceHero
+PriceHero App
+This app helps you choose everyday stuff at a cheaper rate than it is in the market...
