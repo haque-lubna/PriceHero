@@ -4,24 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.lubnasweety.pricehero.backEnd.productDetails;
-import com.lubnasweety.pricehero.completed.login;
+import com.lubnasweety.pricehero.backEnd.DataHelper;
+
+import java.util.ArrayList;
 
 public class Homepage extends AppCompatActivity {
 
-    GridView ornamentsGridView;
-    GridView groceryGridView;
-    GridView electronicsGridView;
+    RecyclerView categoryList;
     Intent goToItemDetails;
+    DataHelper dataHelper;
+    ArrayList<String> categories;
 
     FragmentTransaction fragmentTransaction;
 
@@ -30,40 +26,43 @@ public class Homepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage_new);
 
+        dataHelper = DataHelper.getInstance();
+
         //oikhan theke ana
         Toolbar toolbar=(Toolbar)findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
 
-
-        ornamentsGridView = (GridView) findViewById(R.id.ornamentsproducts);
-//        GridAdapterProducts gridAdapterOrnaments = new GridAdapterProducts(this, DataHelper.getNames("ornaments"), DataHelper.getImages("ornaments"));
-//        ornamentsGridView.setAdapter(gridAdapterOrnaments);
-
-        groceryGridView = (GridView) findViewById(R.id.groceryproducts);
-//        GridAdapterProducts gridAdapterGrocery = new GridAdapterProducts(this, DataHelper.getNames("grocery"), DataHelper.getImages("grocery"));
-//        groceryGridView.setAdapter(gridAdapterGrocery);
-
-        electronicsGridView = (GridView) findViewById(R.id.electronicsproducts);
-//        GridAdapterProducts gridAdapterElectronics = new GridAdapterProducts(this, DataHelper.getNames("electronics"), DataHelper.getImages("electronics"));
-//        electronicsGridView.setAdapter(gridAdapterElectronics);
-
         goToItemDetails = new Intent(Homepage.this, ItemDetails.class);
 
-        GridView.OnItemClickListener gridListener = new GridView.OnItemClickListener() {
+        categoryList = (RecyclerView) findViewById(R.id.categoryList);
 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                productDetails details = (productDetails) parent.getAdapter().getItem(position);
-                goToItemDetails.putExtra("data", details);
-                startActivity(goToItemDetails);
-            }
-        };
-
-        ornamentsGridView.setOnItemClickListener(gridListener);
-        groceryGridView.setOnItemClickListener(gridListener);
-        electronicsGridView.setOnItemClickListener(gridListener);
+        categories = new ArrayList<String>();
+        categories.add("General");
+        categories.add("vugi chugi");
+        categoryList.setAdapter(new CategoryAdapter(categories, Homepage.this));
 
 
+//        DatabaseReference products = dataHelper.getDatabase().child("products");
+//        products.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                categories = new ArrayList<String>();
+//                for(DataSnapshot child: dataSnapshot.getChildren()) {
+//                    categories.add(child.getKey());
+//                }
+//                Toast.makeText(Homepage.this, categories.size(), Toast.LENGTH_LONG).show();
+//                categoryList.setAdapter(new CategoryAdapter(categories, Homepage.this));
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+
+
+
+//
     }
 
     @Override
@@ -72,31 +71,6 @@ public class Homepage extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id=item.getItemId();
-        if(id==R.id.grocery)
-        {
-            Toast.makeText(this,"grocery",Toast.LENGTH_LONG).show();
-            startActivity(new Intent(this,GroceryActivity.class));
-        }
-        else if(id==R.id.formale)
-        {
-            Toast.makeText(this,"cart",Toast.LENGTH_LONG).show();
-            //startActivity(new Intent(this,CartActivity.class));
-        }
-        else if(id==R.id.forfemale)
-        {
-            Toast.makeText(this,"shopping",Toast.LENGTH_LONG).show();
-            // startActivity(new Intent(this,GroceryActivity.class));
-        }
-        else if(id == R.id.logout){
-            FirebaseAuth mAuth = FirebaseAuth.getInstance();
-            mAuth.signOut();
-           startActivity(new Intent(this,login.class));
-        }
 
-        return super.onOptionsItemSelected(item);
-    }
 
 }

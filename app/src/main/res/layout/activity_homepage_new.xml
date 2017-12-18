@@ -22,72 +22,12 @@
             android:id="@+id/app_bar">
         </include>
 
-        <TextView
-            android:id="@+id/ornamentsTitle"
-            android:text="Ornaments Items"
-            android:padding="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#120c0c"
-            android:textStyle="bold"
-            />
-
-        <GridView
-
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/categoryList"
+            android:orientation="vertical"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:numColumns="3"
-            android:columnCount="3"
-            android:stretchMode="columnWidth"
-            android:padding="10dp"
-            android:verticalSpacing="0dp"
-            android:horizontalSpacing="0dp"
-            android:id="@+id/ornamentsproducts">
-
-        </GridView>
-        <TextView
-            android:id="@+id/groceryTitle"
-            android:text="Grocery Items"
-            android:padding="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#120c0c"
-            android:textStyle="bold"
-            />
-        <GridView
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:numColumns="3"
-            android:columnCount="3"
-            android:padding="10dp"
-            android:verticalSpacing="1dp"
-            android:horizontalSpacing="1dp"
-            android:id="@+id/groceryproducts">
-
-        </GridView>
-
-        <TextView
-            android:id="@+id/electronicsTitle"
-            android:text="Electronics Items"
-            android:padding="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#120c0c"
-            android:textStyle="bold"
-            />
-        <GridView
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:numColumns="3"
-            android:columnCount="3"
-            android:padding="10dp"
-            android:verticalSpacing="1dp"
-            android:horizontalSpacing="1dp"
-            android:id="@+id/electronicsproducts">
-
-        </GridView>
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

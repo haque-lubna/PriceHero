@@ -24,6 +24,10 @@ public class DataHelper {
     private FirebaseStorage mFirebaseStorage;
     private StorageReference storage;
 
+    public DatabaseReference getDatabase() {
+        return database;
+    }
+
     public static DataHelper getInstance() {
         return instance;
     }
@@ -46,7 +50,7 @@ public class DataHelper {
     }
 
     public String getUid() {
-        return  mFirebaseAuth.getCurrentUser().getUid();
+        return mFirebaseAuth.getCurrentUser().getUid();
     }
 
     public void pushProduct(String productName, String productCategory, String productDescription, String storeName, String storeLocation, String productPrice, String productQuantity, String productOffers, String imagePath) {
