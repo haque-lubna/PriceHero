@@ -15,11 +15,11 @@ import java.util.ArrayList;
 
 class CategoryHolder extends RecyclerView.ViewHolder {
     public TextView categoryName;
-//    public RecyclerView categoryData;
+    public RecyclerView categoryData;
     public CategoryHolder(View itemView) {
         super(itemView);
         categoryName = (TextView) itemView.findViewById(R.id.categoryName);
-//        categoryData = (RecyclerView) itemView.findViewById(R.id.categoryData);
+        categoryData = (RecyclerView) itemView.findViewById(R.id.categoryData);
     }
 
 }
@@ -36,7 +36,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryHolder> {
     @Override
     public CategoryHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = activity.getLayoutInflater();
-        View view = inflater.inflate(R.layout.each_category_layout, parent, true);
+        View view = inflater.inflate(R.layout.each_category_layout, null);
         CategoryHolder holder = new CategoryHolder(view);
         return holder;
     }

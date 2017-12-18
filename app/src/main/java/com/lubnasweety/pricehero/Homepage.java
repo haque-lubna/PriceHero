@@ -8,6 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
 
 import java.util.ArrayList;
@@ -37,28 +41,27 @@ public class Homepage extends AppCompatActivity {
         categoryList = (RecyclerView) findViewById(R.id.categoryList);
 
         categories = new ArrayList<String>();
-        categories.add("General");
-        categories.add("vugi chugi");
+
         categoryList.setAdapter(new CategoryAdapter(categories, Homepage.this));
 
 
-//        DatabaseReference products = dataHelper.getDatabase().child("products");
-//        products.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                categories = new ArrayList<String>();
-//                for(DataSnapshot child: dataSnapshot.getChildren()) {
-//                    categories.add(child.getKey());
-//                }
-//                Toast.makeText(Homepage.this, categories.size(), Toast.LENGTH_LONG).show();
-//                categoryList.setAdapter(new CategoryAdapter(categories, Homepage.this));
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
+        DatabaseReference products = dataHelper.getDatabase().child("products");
+        products.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                categories = new ArrayList<String>();
+                for(DataSnapshot child: dataSnapshot.getChildren()) {
+                    categories.add(child.getKey());
+                }
+                //Toast.makeText(Homepage.this, String.valueOf(categories.size()), Toast.LENGTH_LONG).show();
+                categoryList.setAdapter(new CategoryAdapter(categories, Homepage.this));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
 
 
