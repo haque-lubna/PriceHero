@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E1BEE7"
-    tools:context="com.lubnasweety.pricehero.PostFragment">
+    tools:context="com.lubnasweety.pricehero.completed.PostFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.constraint.ConstraintLayout

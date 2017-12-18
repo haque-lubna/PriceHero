@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.lubnasweety.pricehero.EditProfile;
 import com.lubnasweety.pricehero.NotificationFragment;
-import com.lubnasweety.pricehero.PostFragment;
 import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
 

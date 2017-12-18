@@ -1,4 +1,4 @@
-package com.lubnasweety.pricehero;
+package com.lubnasweety.pricehero.completed;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.storage.UploadTask;
+import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
 
 import static android.app.Activity.RESULT_CANCELED;
@@ -145,6 +146,7 @@ public class PostFragment extends Fragment {
             dialog.setTitle("Uploading Image...");
             dialog.show();
             UploadTask uploading = dataHelper.uploadImage(selectedImageUri);
+
             uploading.addOnFailureListener(t->{
                 dialog.cancel();
                 Toast.makeText(getActivity(), "Uploading failed...", Toast.LENGTH_LONG).show();
@@ -154,6 +156,7 @@ public class PostFragment extends Fragment {
                     dataHelper.pushProduct(productNameText, productCategoryText, productDescriptionText, storeNameText, storeLocationText, productPriceText, productQuantityText, productOffersText, imagePath);
                     dialog.cancel();
                     Toast.makeText(getActivity(), "Product added...", Toast.LENGTH_LONG).show();
+
             }).addOnProgressListener( taskSnapshot ->  {
                     dialog.setMessage("uploaded "+ taskSnapshot.getBytesTransferred() + " out of " + taskSnapshot.getTotalByteCount() +" bytes");
             });

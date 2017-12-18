@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/PriceHero.iml" filepath="$PROJECT_DIR$/.idea/PriceHero.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PriceHero.iml" filepath="$PROJECT_DIR$/PriceHero.iml" />
+      <module fileurl="file://C:\Users\Asus\Desktop\PriceHero\.idea\PriceHero.iml" filepath="C:\Users\Asus\Desktop\PriceHero\.idea\PriceHero.iml" />
       <module fileurl="file://G:\PriceHero\PriceHero.iml" filepath="G:\PriceHero\PriceHero.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
