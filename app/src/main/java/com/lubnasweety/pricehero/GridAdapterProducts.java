@@ -5,8 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.lubnasweety.pricehero.backEnd.productDetails;
 
@@ -53,10 +51,10 @@ public class GridAdapterProducts extends BaseAdapter {
         if(convertView == null){
             view = new View(context);
             view = layoutInflater.inflate(R.layout.single_item,null);
-            ImageView imageView = (ImageView) view.findViewById(R.id.imageview);
-            TextView textView = (TextView) view.findViewById(R.id.textview);
-            imageView.setImageResource(image[position]);
-            textView.setText(productNames[position]);
+            //ImageView imageView = (ImageView) view.findViewById(R.id.imageview);
+            //TextView textView = (TextView) view.findViewById(R.id.textview);
+            //imageView.setImageResource(image[position]);
+            //textView.setText(productNames[position]);
         }
         return  view;
     }
