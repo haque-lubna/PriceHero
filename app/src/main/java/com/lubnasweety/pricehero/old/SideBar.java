@@ -16,7 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.lubnasweety.pricehero.ItemDetails;
+import com.lubnasweety.pricehero.completed.ItemDetails;
 import com.lubnasweety.pricehero.R;
 
 import static com.lubnasweety.pricehero.R.id.iv_Oil;

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.lubnasweety.pricehero.Homepage;
 import com.lubnasweety.pricehero.R;
 
 public class Selection extends AppCompatActivity {

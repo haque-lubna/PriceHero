@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E0F2F1"
-    tools:context="com.lubnasweety.pricehero.Homepage">
+    tools:context="com.lubnasweety.pricehero.completed.Homepage">
 
     <LinearLayout
         android:layout_width="match_parent"

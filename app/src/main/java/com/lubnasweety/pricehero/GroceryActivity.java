@@ -11,7 +11,8 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.lubnasweety.pricehero.backEnd.productDetails;
+import com.lubnasweety.pricehero.completed.ItemDetails;
+import com.lubnasweety.pricehero.old.productDetails;
 
 public class GroceryActivity extends AppCompatActivity {
     Intent goToItemDetails;

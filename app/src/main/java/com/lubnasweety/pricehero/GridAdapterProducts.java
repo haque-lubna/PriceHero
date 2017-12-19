@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.lubnasweety.pricehero.backEnd.productDetails;
+import com.lubnasweety.pricehero.old.productDetails;
 
 /**
  * Created by Asus on 11/25/2017.

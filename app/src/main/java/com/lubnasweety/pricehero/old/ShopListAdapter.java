@@ -1,4 +1,4 @@
-package com.lubnasweety.pricehero;
+package com.lubnasweety.pricehero.old;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,7 +10,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.lubnasweety.pricehero.backEnd.DetailEachShop;
+import com.lubnasweety.pricehero.Booking;
+import com.lubnasweety.pricehero.R;
 
 import java.util.ArrayList;
 
@@ -63,7 +64,7 @@ public class ShopListAdapter extends BaseAdapter {
         TextView nameEach = (TextView) convertView.findViewById(R.id.store_name_each);
         nameEach.setText(data.getStoreName());
 
-        TextView locationEach = (TextView) convertView.findViewById(R.id.place_each);
+        TextView locationEach = (TextView) convertView.findViewById(R.id.store_location_each);
         locationEach.setText(data.getLocation());
 
         TextView availableEach = (TextView) convertView.findViewById(R.id.available_each);

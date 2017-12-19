@@ -21,13 +21,13 @@
         <activity android:name=".completed.login" />
         <activity android:name=".completed.register" />
         <activity android:name=".old.Details" />
-        <activity android:name=".Homepage" />
+        <activity android:name=".completed.Homepage" />
         <activity android:name=".Booking" />
         <activity
             android:name=".old.SideBar"
             android:label="PriceHero"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ItemDetails" />
+        <activity android:name=".completed.ItemDetails" />
         <activity
             android:name=".completed.SellerHome"
             android:label="@string/title_activity_seller_home" />
