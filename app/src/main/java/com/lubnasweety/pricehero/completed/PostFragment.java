@@ -132,6 +132,8 @@ public class PostFragment extends Fragment {
             startActivityForResult(Intent.createChooser(intent, "Complete action using"), RC_PHOTO_PICKER);
         });
 
+
+
         btnSubmit.setOnClickListener(e->{
             productNameText = productName.getText().toString();
             productCategoryText = productCategory.getText().toString();
@@ -141,6 +143,23 @@ public class PostFragment extends Fragment {
             productPriceText = productPrice.getText().toString();
             productQuantityText = productQuantity.getText().toString();
             productOffersText = productOffers.getText().toString();
+
+
+            if(productNameText == null || productNameText.equals("")
+                    ||productCategoryText == null || productCategoryText.equals("")
+                    ||productDescriptionText == null || productDescriptionText.equals("")
+                    ||storeNameText == null || storeNameText.equals("")
+                    ||storeLocationText == null ||storeLocationText.equals("")
+                    ||productPriceText == null || productPriceText.equals("")
+                    ||productQuantityText == null ||productQuantityText.equals("")
+                    ||productOffersText == null || productOffersText.equals("")
+                    ||selectedImageUri == null || selectedImageUri.equals("")){
+                Toast.makeText(getActivity(), "Please Enter all values...",Toast.LENGTH_LONG).show();
+                return;
+            }
+
+
+
 
             dialog = new ProgressDialog(getActivity());
             dialog.setTitle("Uploading Image...");

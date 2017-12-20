@@ -46,7 +46,8 @@ public class DataHelper {
 
 
     public UploadTask uploadImage(Uri uri) {
-        return storage.child("images").child(uri.getLastPathSegment()).putFile(uri);
+        String currentTime = String.valueOf(System.currentTimeMillis());
+        return storage.child("images").child(currentTime).child(uri.getLastPathSegment()).putFile(uri);
     }
 
     public String getUid() {
