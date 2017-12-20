@@ -48,11 +48,13 @@ class ShopHolder extends RecyclerView.ViewHolder {
 
 public class RecyclerShopListAdapter extends RecyclerView.Adapter<ShopHolder> {
     ArrayList<Shop> shopArrayList;
+    ArrayList<String> shopKeyArrayList;
     Activity activity;
     LayoutInflater inflater;
 
-    public RecyclerShopListAdapter(ArrayList<Shop> shopArrayList, Activity activity) {
+    public RecyclerShopListAdapter(ArrayList<Shop> shopArrayList, ArrayList<String> shopKeyArrayList, Activity activity) {
         this.shopArrayList = shopArrayList;
+        this.shopKeyArrayList = shopKeyArrayList;
         this.activity = activity;
         inflater = activity.getLayoutInflater();
     }
@@ -68,6 +70,7 @@ public class RecyclerShopListAdapter extends RecyclerView.Adapter<ShopHolder> {
     @Override
     public void onBindViewHolder(ShopHolder holder, int position) {
         Shop shop = shopArrayList.get(position);
+        String key = shopKeyArrayList.get(position);
 
         holder.productPrice.setText("Price: " + shop.getProductPrice().toString());
         holder.storeName.setText(shop.getStoreName());
@@ -78,6 +81,10 @@ public class RecyclerShopListAdapter extends RecyclerView.Adapter<ShopHolder> {
 
         holder.bookNow.setOnClickListener(e->{
             Intent goToBooking = new Intent(activity, Booking.class);
+            goToBooking.putExtra("shop",shop);
+            goToBooking.putExtra("key", key);
+            goToBooking.putExtra("productName", ( (ItemDetails) activity).name);
+            goToBooking.putExtra("productCategory", ( (ItemDetails) activity).category );
             activity.startActivity(goToBooking);
         });
 

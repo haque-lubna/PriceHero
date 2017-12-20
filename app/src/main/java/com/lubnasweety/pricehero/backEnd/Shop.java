@@ -1,10 +1,12 @@
 package com.lubnasweety.pricehero.backEnd;
 
+import java.io.Serializable;
+
 /**
  * Created by Asus on 12/15/2017.
  */
 
-public class Shop {
+public class Shop implements Serializable {
     String productDescription;
     String storeName;
     String storeLocation;
@@ -15,6 +17,7 @@ public class Shop {
     String imageUrl;
 
     public Shop() {
+
     }
 
     public Shop(String productDescription, String storeName, String storeLocation, String productQuantity, String productOffers, Double productPrice, String sellerUid, String imageUrl) {

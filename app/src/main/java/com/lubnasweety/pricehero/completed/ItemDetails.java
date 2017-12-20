@@ -26,6 +26,7 @@ public class ItemDetails extends AppCompatActivity {
     ImageView productImage;
     RecyclerView shopList;
     ArrayList<Shop> shopArrayList;
+    ArrayList<String> shopKeyArrayList;
     DatabaseReference shops;
 
     String name;
@@ -70,12 +71,15 @@ public class ItemDetails extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 shopArrayList= new ArrayList<>();
+                shopKeyArrayList = new ArrayList<>();
                 for(DataSnapshot child: dataSnapshot.getChildren()) {
                     Shop shop = child.getValue(Shop.class);
+                    String key = child.getKey();
                     shopArrayList.add(shop);
+                    shopKeyArrayList.add(key);
                 }
 
-                shopList.setAdapter(new RecyclerShopListAdapter(shopArrayList, ItemDetails.this));
+                shopList.setAdapter(new RecyclerShopListAdapter(shopArrayList, shopKeyArrayList, ItemDetails.this));
             }
 
             @Override
