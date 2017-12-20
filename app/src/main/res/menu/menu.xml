@@ -33,6 +33,12 @@
 
     </item>
     <item
+        android:id="@+id/search"
+        android:title="search"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_search">
+    </item>
+    <item
         android:id="@+id/cart"
         android:icon="@drawable/ic_shopping_cart"
         android:title="Cart"
@@ -46,6 +52,7 @@
         app:showAsAction="always">
 
     </item>
+
     <item
         android:id="@+id/editprofilebuyer"
         android:icon="@drawable/ic_edit"
