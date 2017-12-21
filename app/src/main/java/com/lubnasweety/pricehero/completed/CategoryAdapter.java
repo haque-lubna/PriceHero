@@ -21,6 +21,7 @@ import java.util.ArrayList;
  * Created by Asus on 12/18/2017.
  */
 
+
 class CategoryHolder extends RecyclerView.ViewHolder { //finds all the views in each child
     public TextView categoryName;
     public RecyclerView categoryData;
@@ -31,18 +32,23 @@ class CategoryHolder extends RecyclerView.ViewHolder { //finds all the views in 
         categoryData = (RecyclerView) itemView.findViewById(R.id.categoryData);
     }
 
+
 }
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryHolder> {
     ArrayList<String> categories;
     Activity activity;
+    String searchText;
     ArrayList<Product> itemList;
     public DataHelper dataHelper;
 
-    public CategoryAdapter(ArrayList<String> categories, Activity activity) { //gets all thedata
+    public CategoryAdapter(ArrayList<String> categories, String searchText, Activity activity) {
         this.categories = categories;
+        this.searchText = searchText;
         this.activity = activity;
+
         dataHelper = DataHelper.getInstance();
+
     }
 
     @Override
@@ -68,13 +74,16 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryHolder> {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 itemList = new ArrayList<Product>();
 
-                for(DataSnapshot child: dataSnapshot.getChildren()) {
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
                     String name = child.child("name").getValue(String.class);
                     String category = child.child("category").getValue(String.class);
                     String imageAddress = child.child("image").getValue(String.class);
 
-                    Product product = new Product(name, category, imageAddress);
-                    itemList.add(product);
+                    if (searchText==null || searchText.equals("") || name.toLowerCase().contains(searchText.toLowerCase())) {
+                        Product product = new Product(name, category, imageAddress);
+                        itemList.add(product);
+                    }
+
                 }
 
                 holder.categoryData.setAdapter(new ItemAdapter(nameOfCategory, activity, itemList));

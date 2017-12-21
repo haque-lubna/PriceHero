@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
 import com.lubnasweety.pricehero.backEnd.Shop;
 
@@ -53,22 +54,36 @@ public class Booking extends AppCompatActivity {
                     return;
                 }
 
-                productLeft = productLeft - neededQuantity;
-                String productLeftString = String.valueOf(productLeft);
+                String seller = shop.getSellerUid();
 
-                Toast.makeText(Booking.this, productLeftString, Toast.LENGTH_LONG).show();
+                DatabaseReference sellerNotification = dataHelper.getDatabase().child("users").child(seller).child("notifications").child("sell");
+                String pushkey = sellerNotification.push().getKey();
+                DatabaseReference currentNotification = sellerNotification.child(pushkey);
+
+                currentNotification.child("productName").setValue(productName);
+                currentNotification.child("productCategory").setValue(productCategory);
+                currentNotification.child("shopKey").setValue(key);
+                currentNotification.child("productNeeded").setValue(neededQuantity);
+                currentNotification.child("buyer").setValue(dataHelper.getUid());
+                finish();
 
 
-                if (productLeft.equals(0)) {
+//                productLeft = productLeft - neededQuantity;
+//                String productLeftString = String.valueOf(productLeft);
+//
+//                Toast.makeText(Booking.this, productLeftString, Toast.LENGTH_LONG).show();
 
-                    dataHelper.getDatabase().child("products").child(productCategory).child(productName).child("shops").child(key).setValue(null);
 
-                }
-                else {
-                    shop.setProductQuantity(productLeftString);
-                    Toast.makeText(Booking.this, productCategory + " " + productName + " " + shop.getProductQuantity(), Toast.LENGTH_LONG).show();
-                    dataHelper.getDatabase().child("products").child(productCategory).child(productName).child("shops").child(key).setValue(shop);
-                }
+//                if (productLeft.equals(0)) {
+//
+//                    dataHelper.getDatabase().child("products").child(productCategory).child(productName).child("shops").child(key).setValue(null);
+//
+//                }
+//                else {
+//                    shop.setProductQuantity(productLeftString);
+//                    Toast.makeText(Booking.this, productCategory + " " + productName + " " + shop.getProductQuantity(), Toast.LENGTH_LONG).show();
+//                    dataHelper.getDatabase().child("products").child(productCategory).child(productName).child("shops").child(key).setValue(shop);
+//                }
 
             }
         });

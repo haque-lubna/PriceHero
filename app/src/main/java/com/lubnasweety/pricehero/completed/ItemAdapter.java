@@ -24,12 +24,23 @@ class ItemHolder extends RecyclerView.ViewHolder {
     TextView productName;
     ImageView productImage;
     View view;
+    private static ArrayList<Product> filter;
+
     public ItemHolder(View itemView) {
         super(itemView);
         productName = (TextView) itemView.findViewById(R.id.productName);
         productImage = (ImageView) itemView.findViewById(R.id.productImage);
         view = itemView;
     }
+
+
+     //added for search
+
+
+    public static void setFilter(ArrayList<Product> filter) {
+        ItemHolder.filter = filter;
+    }
+
 }
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemHolder> {
