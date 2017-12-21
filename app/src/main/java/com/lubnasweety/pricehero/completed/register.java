@@ -21,6 +21,7 @@ import com.lubnasweety.pricehero.backEnd.DataHelper;
 public class register extends AppCompatActivity implements View.OnClickListener{
 
     private Button btnRegister;
+    private EditText editName;
     private EditText editTextEmail;
     private EditText editTextpassword;
     private TextView textviewlogin;
@@ -42,6 +43,7 @@ public class register extends AppCompatActivity implements View.OnClickListener{
 
 
         btnRegister = (Button) findViewById(R.id.btnRegister);
+        editName = (EditText) findViewById(R.id.editName);
         editTextEmail = (EditText) findViewById(R.id.editEmail);
         editTextpassword = (EditText) findViewById(R.id.editpassword);
         textviewlogin = (TextView) findViewById(R.id.textviewlogin);
@@ -51,8 +53,14 @@ public class register extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void registerUser() {
+        String name = editName.getText().toString().trim();
         String email = editTextEmail.getText().toString().trim();
         String password = editTextpassword.getText().toString().trim();
+
+        if(TextUtils.isEmpty(name)){
+            Toast.makeText(this,"Please Enter the Name",Toast.LENGTH_LONG).show();
+            return;
+        }
 
         if(TextUtils.isEmpty(email)){
             Toast.makeText(this,"Please Enter the Email",Toast.LENGTH_LONG).show();
@@ -72,6 +80,7 @@ public class register extends AppCompatActivity implements View.OnClickListener{
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressdialog.cancel();
                         if(task.isSuccessful()){
+                            dataHelper.getDatabase().child("users").child(dataHelper.getUid()).child("name").setValue(name);
                             finish();
                             startActivity(new Intent(getApplicationContext(),Selection.class));
                         }else {
