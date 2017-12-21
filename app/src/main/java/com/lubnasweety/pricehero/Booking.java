@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
+import com.lubnasweety.pricehero.backEnd.Notification;
 import com.lubnasweety.pricehero.backEnd.Shop;
 
 public class Booking extends AppCompatActivity {
@@ -31,7 +32,7 @@ public class Booking extends AppCompatActivity {
         dataHelper = DataHelper.getInstance();
 
         Shop shop = (Shop) getIntent().getSerializableExtra("shop");
-        String key = getIntent().getStringExtra("key");
+        String shopKey = getIntent().getStringExtra("key");
         String productName = getIntent().getStringExtra("productName");
         String productCategory = getIntent().getStringExtra("productCategory");
 
@@ -60,11 +61,11 @@ public class Booking extends AppCompatActivity {
                 String pushkey = sellerNotification.push().getKey();
                 DatabaseReference currentNotification = sellerNotification.child(pushkey);
 
-                currentNotification.child("productName").setValue(productName);
-                currentNotification.child("productCategory").setValue(productCategory);
-                currentNotification.child("shopKey").setValue(key);
-                currentNotification.child("productNeeded").setValue(neededQuantity);
-                currentNotification.child("buyer").setValue(dataHelper.getUid());
+                Notification notification = new Notification(productName, productCategory, shopKey, neededQuantity, dataHelper.getUid(), shop.getImageUrl());
+
+                currentNotification.setValue(notification);
+
+                Toast.makeText(Booking.this, "Booking request sent...", Toast.LENGTH_LONG).show();
                 finish();
 
 

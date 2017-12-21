@@ -1,4 +1,4 @@
-package com.lubnasweety.pricehero;
+package com.lubnasweety.pricehero.old;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.lubnasweety.pricehero.R;
 
 /**
  * Created by Asus on 11/30/2017.
@@ -51,13 +53,13 @@ public class SellerNotificationAdapter extends BaseAdapter {
             convertView = layoutInflater.inflate(R.layout.seller_each_notification,null);
         }
 
-        TextView buyername = (TextView) convertView.findViewById(R.id.txtbuyername);
-        ImageView productimage = (ImageView) convertView.findViewById(R.id.ivProduct);
-        TextView productid = (TextView) convertView.findViewById(R.id.txtID);
+        TextView buyername = (TextView) convertView.findViewById(R.id.buyText);
+        ImageView productimage = (ImageView) convertView.findViewById(R.id.productImage);
+
 
        buyername.setText(buyerName[position]);
        productimage.setImageResource(productImage[position]);
-        productid.setText(productID[position]);
+        //productid.setText(productID[position]);
 
 return convertView;
     }

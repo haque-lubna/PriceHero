@@ -1,14 +1,24 @@
 package com.lubnasweety.pricehero;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+import com.lubnasweety.pricehero.backEnd.DataHelper;
+import com.lubnasweety.pricehero.backEnd.Notification;
+
+import java.util.ArrayList;
 
 
 /**
@@ -21,31 +31,11 @@ import android.widget.Toast;
  */
 public class NotificationFragment extends Fragment {
 
-    ListView listNotification;
-    String[] buyerName = {
-            "Eshita wants to buy this product",
-            "Aundrila wants to buy this product",
-            "Adiba wants to buy this product",
-            "Marjia wants to buy this product",
-            "Puja wants to buy this product"
-
-    };
-    Integer[] productImage = {
-            R.drawable.camera,
-            R.drawable.bangle,
-            R.drawable.tea,
-            R.drawable.cable,
-            R.drawable.oil
-    };
-    String[] productID = {
-            "id:1234",
-            "id:2345",
-            "id:3456",
-            "id:4567",
-            "id:5678",
-
-    };
+    RecyclerView listNotification;
     Context context;
+    ArrayList<Notification> notifications = new ArrayList<>();
+    ArrayList<String> notificationKeys = new ArrayList<>();
+    DataHelper dataHelper;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +49,7 @@ public class NotificationFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     public NotificationFragment() {
+
         // Required empty public constructor
     }
 
@@ -87,6 +78,7 @@ public class NotificationFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        dataHelper = DataHelper.getInstance();
     }
 
     @Override
@@ -95,9 +87,30 @@ public class NotificationFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_notification, container, false);
 
-        listNotification = (ListView) v.findViewById(R.id.listNotification);
-        SellerNotificationAdapter sellerNotificationAdapter = new SellerNotificationAdapter(getActivity(),buyerName,productImage,productID);
-        listNotification.setAdapter(sellerNotificationAdapter);
+        listNotification = (RecyclerView) v.findViewById(R.id.listNotification);
+
+        DatabaseReference notificationDatabase = dataHelper.getDatabase().child("users").child(dataHelper.getUid()).child("notifications").child("sell");
+        notificationDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                notifications = new ArrayList<>();
+                notificationKeys = new ArrayList<>();
+                for(DataSnapshot child: dataSnapshot.getChildren()) {
+                    notificationKeys.add(child.getKey());
+                    Notification notification = child.getValue(Notification.class);
+                    notifications.add(notification);
+                }
+                listNotification.setAdapter(new RecycleSellNotificationAdapter(notifications, notificationKeys, (Activity) context));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        //SellerNotificationAdapter sellerNotificationAdapter = new SellerNotificationAdapter(getActivity(),buyerName,productImage,productID);
+        //listNotification.setAdapter(sellerNotificationAdapter);
 
         return v;
     }
@@ -112,6 +125,7 @@ public class NotificationFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        this.context = context;
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
