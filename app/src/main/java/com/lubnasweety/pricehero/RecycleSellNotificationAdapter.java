@@ -108,10 +108,12 @@ public class RecycleSellNotificationAdapter extends RecyclerView.Adapter<Notific
                 }
             });
 
+            //the following line removes the notification
             dataHelper.getDatabase().child("users").child(dataHelper.getUid()).child("notifications").child("sell").child(notificationKey).setValue(null);
         });
 
         holder.deny.setOnClickListener(e->{
+            //the following line removes the notification
             dataHelper.getDatabase().child("users").child(dataHelper.getUid()).child("notifications").child("sell").child(notificationKey).setValue(null);
         });
 
