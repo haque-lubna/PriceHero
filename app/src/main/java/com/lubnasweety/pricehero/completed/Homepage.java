@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -74,6 +75,7 @@ public class Homepage extends AppCompatActivity implements SearchView.OnQueryTex
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu,menu);
 
+
         if(menu instanceof MenuBuilder){
             MenuBuilder m = (MenuBuilder) menu;
             m.setOptionalIconsVisible(true);
@@ -83,7 +85,21 @@ public class Homepage extends AppCompatActivity implements SearchView.OnQueryTex
         SearchView searchView = (SearchView) menuItem.getActionView();
         searchView.setOnQueryTextListener(this);
 
+
+
         return true;
+
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+        if(item.getItemId() == R.id.logout){
+            FirebaseAuth fAuth = FirebaseAuth.getInstance();
+            fAuth.signOut();
+            finish();
+            startActivity(new Intent(Homepage.this,login.class));
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 
@@ -98,5 +114,7 @@ public class Homepage extends AppCompatActivity implements SearchView.OnQueryTex
         categoryList.setAdapter(new CategoryAdapter(categories, searchText, Homepage.this));
         return true;
     }
+
+
 
 }
