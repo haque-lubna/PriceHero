@@ -210,7 +210,7 @@ public class PostFragment extends Fragment {
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            Toast.makeText(context, "Post Fragment Attached", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Post Fragment Attached", Toast.LENGTH_SHORT).show();
 
         }
     }

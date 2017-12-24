@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -97,8 +96,8 @@ public class NotificationFragment extends Fragment {
                 notificationKeys = new ArrayList<>();
                 for(DataSnapshot child: dataSnapshot.getChildren()) {
                     notificationKeys.add(child.getKey());
-                    Notification notification = child.getValue(Notification.class);
-                    notifications.add(notification);
+                    Notification sellNotification = child.getValue(Notification.class);
+                    notifications.add(sellNotification);
                 }
                 listNotification.setAdapter(new RecycleSellNotificationAdapter(notifications, notificationKeys, (Activity) context));
             }
@@ -130,7 +129,7 @@ public class NotificationFragment extends Fragment {
             mListener = (OnFragmentInteractionListener) context;
         } else {
 
-            Toast.makeText(context, "Notification Fragment Attached", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Notification Fragment Attached", Toast.LENGTH_SHORT).show();
         }
     }
 

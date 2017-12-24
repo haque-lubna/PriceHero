@@ -95,7 +95,7 @@ public class Homepage extends AppCompatActivity implements SearchView.OnQueryTex
         if(item.getItemId() == R.id.logout){
             FirebaseAuth fAuth = FirebaseAuth.getInstance();
             fAuth.signOut();
-            finish();
+            finishAffinity();
             startActivity(new Intent(Homepage.this,login.class));
 
         }

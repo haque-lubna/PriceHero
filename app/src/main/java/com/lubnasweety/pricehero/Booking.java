@@ -59,32 +59,20 @@ public class Booking extends AppCompatActivity {
 
                 DatabaseReference sellerNotification = dataHelper.getDatabase().child("users").child(seller).child("notifications").child("sell");
                 String pushkey = sellerNotification.push().getKey();
-                DatabaseReference currentNotification = sellerNotification.child(pushkey);
+                sellerNotification.child(pushkey);
 
-                Notification notification = new Notification(productName, productCategory, shopKey, neededQuantity, dataHelper.getUid(), shop.getImageUrl());
+                DatabaseReference pendingNotification = dataHelper.getDatabase().child("users").child(dataHelper.getUid()).child("notifications").child("pending");
+                String pendingKey = pendingNotification.push().getKey();
 
-                currentNotification.setValue(notification);
+                Notification notification = new Notification(productName, productCategory, shopKey, neededQuantity, dataHelper.getUid(), shop.getImageUrl(), pendingKey);
+
+                sellerNotification.child(pendingKey).setValue(notification);
+                notification.setAcceptState("pending");
+                pendingNotification.child(pendingKey).setValue(notification);
+
 
                 Toast.makeText(Booking.this, "Booking request sent...", Toast.LENGTH_LONG).show();
                 finish();
-
-
-//                productLeft = productLeft - neededQuantity;
-//                String productLeftString = String.valueOf(productLeft);
-//
-//                Toast.makeText(Booking.this, productLeftString, Toast.LENGTH_LONG).show();
-
-
-//                if (productLeft.equals(0)) {
-//
-//                    dataHelper.getDatabase().child("products").child(productCategory).child(productName).child("shops").child(key).setValue(null);
-//
-//                }
-//                else {
-//                    shop.setProductQuantity(productLeftString);
-//                    Toast.makeText(Booking.this, productCategory + " " + productName + " " + shop.getProductQuantity(), Toast.LENGTH_LONG).show();
-//                    dataHelper.getDatabase().child("products").child(productCategory).child(productName).child("shops").child(key).setValue(shop);
-//                }
 
             }
         });

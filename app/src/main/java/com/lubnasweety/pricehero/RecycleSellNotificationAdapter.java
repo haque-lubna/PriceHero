@@ -101,6 +101,8 @@ public class RecycleSellNotificationAdapter extends RecyclerView.Adapter<Notific
                         available.setValue(String.valueOf(currentAvailable));
 
                         //send notification to buyer
+
+
                     }
                     else {
                         Toast.makeText(activity, "not enough products available...", Toast.LENGTH_LONG).show();

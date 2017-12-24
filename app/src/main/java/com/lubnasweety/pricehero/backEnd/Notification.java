@@ -11,17 +11,45 @@ public class Notification {
     Integer productNeeded;
     String buyer;
     String imagePath;
+    String pendingKey="";
+    String date="";
+    String acceptState="";
 
     public Notification() {
     }
 
-    public Notification(String productName, String productCategory, String shopKey, Integer productNeeded, String buyer, String imagePath) {
+    public Notification(String productName, String productCategory, String shopKey, Integer productNeeded, String buyer, String imagePath, String pendingKey) {
         this.productName = productName;
         this.productCategory = productCategory;
         this.shopKey = shopKey;
         this.productNeeded = productNeeded;
         this.buyer = buyer;
         this.imagePath = imagePath;
+        this.pendingKey = pendingKey;
+    }
+
+    public String getPendingKey() {
+        return pendingKey;
+    }
+
+    public void setPendingKey(String pendingKey) {
+        this.pendingKey = pendingKey;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getAcceptState() {
+        return acceptState;
+    }
+
+    public void setAcceptState(String acceptState) {
+        this.acceptState = acceptState;
     }
 
     public String getProductName() {

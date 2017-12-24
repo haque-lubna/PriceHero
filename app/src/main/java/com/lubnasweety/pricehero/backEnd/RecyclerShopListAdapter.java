@@ -95,7 +95,6 @@ public class RecyclerShopListAdapter extends RecyclerView.Adapter<ShopHolder> {
             goToBooking.putExtra("productCategory", ( (ItemDetails) activity).getCategory() );
             activity.startActivity(goToBooking);
         });
-
     }
 
     @Override
