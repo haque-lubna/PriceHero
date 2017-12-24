@@ -1,4 +1,4 @@
-package com.lubnasweety.pricehero.completed;
+package com.lubnasweety.pricehero.backEnd;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
@@ -12,8 +12,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.lubnasweety.pricehero.R;
-import com.lubnasweety.pricehero.backEnd.DataHelper;
-import com.lubnasweety.pricehero.backEnd.Product;
 
 import java.util.ArrayList;
 
@@ -55,6 +53,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryHolder> {
     public CategoryHolder onCreateViewHolder(ViewGroup parent, int viewType) { //creates new view
         LayoutInflater inflater = activity.getLayoutInflater();
         View view = inflater.inflate(R.layout.each_category_layout, null);
+
+        //needed for match_parent
+        RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        view.setLayoutParams(lp);
+
         CategoryHolder holder = new CategoryHolder(view);
         return holder;
     }

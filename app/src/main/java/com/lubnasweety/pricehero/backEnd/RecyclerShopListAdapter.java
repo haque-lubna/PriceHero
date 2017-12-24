@@ -1,4 +1,4 @@
-package com.lubnasweety.pricehero.completed;
+package com.lubnasweety.pricehero.backEnd;
 
 
 import android.app.Activity;
@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.lubnasweety.pricehero.Booking;
 import com.lubnasweety.pricehero.R;
-import com.lubnasweety.pricehero.backEnd.Shop;
+import com.lubnasweety.pricehero.completed.ItemDetails;
 
 import java.util.ArrayList;
 
@@ -29,6 +29,7 @@ class ShopHolder extends RecyclerView.ViewHolder {
     TextView productAvailable;
     TextView productOffer;
     ImageView productImage;
+    TextView productDescription;
     Button bookNow;
     View view;
 
@@ -42,6 +43,7 @@ class ShopHolder extends RecyclerView.ViewHolder {
         productOffer = itemView.findViewById(R.id.offer_each);
         bookNow = itemView.findViewById(R.id.book_now);
         productImage = itemView.findViewById(R.id.productImage);
+        productDescription = itemView.findViewById(R.id.productDescription);
         view = itemView;
     }
 }
@@ -63,6 +65,11 @@ public class RecyclerShopListAdapter extends RecyclerView.Adapter<ShopHolder> {
     public ShopHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = inflater.inflate(R.layout.details_each_shop, null);
+
+        //the following 2 lines needed for match_parent
+        RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        view.setLayoutParams(lp);
+
         ShopHolder holder = new ShopHolder(view);
         return holder;
     }
@@ -78,13 +85,14 @@ public class RecyclerShopListAdapter extends RecyclerView.Adapter<ShopHolder> {
         holder.productAvailable.setText("Available: " + shop.getProductQuantity());
         holder.productOffer.setText("Offer: " + shop.getProductOffers());
         Glide.with(activity).load(shop.getImageUrl()).into(holder.productImage);
+        holder.productDescription.setText(shop.getProductDescription());
 
         holder.bookNow.setOnClickListener(e->{
             Intent goToBooking = new Intent(activity, Booking.class);
             goToBooking.putExtra("shop",shop);
             goToBooking.putExtra("key", key);
-            goToBooking.putExtra("productName", ( (ItemDetails) activity).name);
-            goToBooking.putExtra("productCategory", ( (ItemDetails) activity).category );
+            goToBooking.putExtra("productName", ( (ItemDetails) activity).getName());
+            goToBooking.putExtra("productCategory", ( (ItemDetails) activity).getCategory() );
             activity.startActivity(goToBooking);
         });
 

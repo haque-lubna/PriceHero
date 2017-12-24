@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
+import com.lubnasweety.pricehero.backEnd.RecyclerShopListAdapter;
 import com.lubnasweety.pricehero.backEnd.Shop;
 
 import java.util.ArrayList;
@@ -32,6 +33,30 @@ public class ItemDetails extends AppCompatActivity {
     String name;
     String category;
     String imageAddress;
+
+    public String getImageAddress() {
+        return imageAddress;
+    }
+
+    public void setImageAddress(String imageAddress) {
+        this.imageAddress = imageAddress;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
     int bookingComplete = 1;
     int bookingFailed = 0;

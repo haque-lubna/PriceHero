@@ -1,4 +1,4 @@
-package com.lubnasweety.pricehero;
+package com.lubnasweety.pricehero.old;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.lubnasweety.pricehero.old.productDetails;
+import com.lubnasweety.pricehero.R;
 
 /**
  * Created by Asus on 11/25/2017.

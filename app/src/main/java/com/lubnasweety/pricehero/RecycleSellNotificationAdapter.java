@@ -58,6 +58,11 @@ public class RecycleSellNotificationAdapter extends RecyclerView.Adapter<Notific
     @Override
     public NotificationHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = activity.getLayoutInflater().inflate(R.layout.seller_each_notification, null);
+
+        //needed for match_parent
+        RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        view.setLayoutParams(lp);
+
         NotificationHolder holder = new NotificationHolder(view);
         return holder;
     }

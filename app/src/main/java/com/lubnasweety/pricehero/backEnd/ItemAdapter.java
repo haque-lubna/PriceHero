@@ -1,4 +1,4 @@
-package com.lubnasweety.pricehero.completed;
+package com.lubnasweety.pricehero.backEnd;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.lubnasweety.pricehero.R;
-import com.lubnasweety.pricehero.backEnd.Product;
+import com.lubnasweety.pricehero.completed.ItemDetails;
 
 import java.util.ArrayList;
 

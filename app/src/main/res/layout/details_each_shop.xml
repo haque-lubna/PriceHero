@@ -20,20 +20,20 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:adjustViewBounds="true"
-        app:layout_constraintBottom_toTopOf="@+id/book_now"
+        app:layout_constraintBottom_toTopOf="@+id/descriptionLabel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/angti" />
 
     <TextView
         android:id="@+id/price_each"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="Price"
-        android:textAlignment="viewStart"
+        android:textAlignment="textEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,13 +45,13 @@
 
     <TextView
         android:id="@+id/store_name_each"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
 
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Store's Name"
-        android:textAlignment="viewStart"
+        android:textAlignment="textEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/price_each"
@@ -64,13 +64,13 @@
 
     <TextView
         android:id="@+id/store_location_each"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
 
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Location"
-        android:textAlignment="viewStart"
+        android:textAlignment="textEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/store_name_each"
@@ -82,14 +82,14 @@
 
     <TextView
         android:id="@+id/available_each"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
 
         android:layout_marginStart="8dp"
 
         android:layout_marginTop="8dp"
         android:text="Available Product"
-        android:textAlignment="viewStart"
+        android:textAlignment="textEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/store_location_each"
@@ -101,14 +101,13 @@
 
     <TextView
         android:id="@+id/offer_each"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
 
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="offers"
-        android:textAlignment="viewStart"
+        android:textAlignment="textEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/available_each"
@@ -122,15 +121,40 @@
         android:id="@+id/book_now"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
         android:background="#fff"
         android:text="book now"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/offer_each"
+        app:layout_constraintTop_toBottomOf="@+id/productDescription"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1" />
 
+    <TextView
+        android:id="@+id/descriptionLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Description:"
+        app:layout_constraintEnd_toEndOf="@+id/offer_each"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/offer_each" />
+
+    <TextView
+        android:id="@+id/productDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textAlignment="viewStart"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        app:layout_constraintEnd_toEndOf="@+id/descriptionLabel"
+        app:layout_constraintStart_toStartOf="@+id/descriptionLabel"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionLabel"
+        tools:text="Ami onek joss" />
 
 
 </android.support.constraint.ConstraintLayout>
