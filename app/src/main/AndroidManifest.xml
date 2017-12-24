@@ -34,7 +34,7 @@
         <activity android:name=".EditProfile" />
         <activity android:name=".completed.Selection" />
         <activity android:name=".old.GroceryActivity" />
-        <activity android:name=".Buyer_Notification" />
+        <activity android:name=".BuyerNotification" />
         <activity android:name=".Cart"></activity>
     </application>
 

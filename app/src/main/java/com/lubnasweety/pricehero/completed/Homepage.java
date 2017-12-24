@@ -16,6 +16,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.lubnasweety.pricehero.BuyerNotification;
+import com.lubnasweety.pricehero.Cart;
 import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.backEnd.CategoryAdapter;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
@@ -98,6 +100,12 @@ public class Homepage extends AppCompatActivity implements SearchView.OnQueryTex
             finishAffinity();
             startActivity(new Intent(Homepage.this,login.class));
 
+        }
+        if(item.getItemId() == R.id.cart) {
+            startActivity(new Intent(Homepage.this, Cart.class));
+        }
+        if(item.getItemId() == R.id.notification) {
+            startActivity(new Intent(Homepage.this, BuyerNotification.class));
         }
 
         return super.onOptionsItemSelected(item);

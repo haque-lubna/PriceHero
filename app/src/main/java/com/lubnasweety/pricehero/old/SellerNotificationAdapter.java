@@ -53,7 +53,7 @@ public class SellerNotificationAdapter extends BaseAdapter {
             convertView = layoutInflater.inflate(R.layout.seller_each_notification,null);
         }
 
-        TextView buyername = (TextView) convertView.findViewById(R.id.buyText);
+        TextView buyername = (TextView) convertView.findViewById(R.id.notificationText);
         ImageView productimage = (ImageView) convertView.findViewById(R.id.productImage);
 
 

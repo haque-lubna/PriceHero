@@ -35,7 +35,7 @@ class NotificationHolder extends RecyclerView.ViewHolder {
         super(itemView);
         view = itemView;
         productImage = itemView.findViewById(R.id.productImage);
-        buyText = itemView.findViewById(R.id.buyText);
+        buyText = itemView.findViewById(R.id.notificationText);
         allow = itemView.findViewById(R.id.allow);
         deny = itemView.findViewById(R.id.deny);
     }
