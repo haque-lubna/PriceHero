@@ -39,7 +39,7 @@ class ShopHolder extends RecyclerView.ViewHolder {
         productPrice = itemView.findViewById(R.id.price_each);
         storeName = itemView.findViewById(R.id.store_name_each);
         storeLocation = itemView.findViewById(R.id.store_location_each);
-        productAvailable = itemView.findViewById(R.id.available_each);
+        productAvailable = itemView.findViewById(R.id.needed_each);
         productOffer = itemView.findViewById(R.id.offer_each);
         bookNow = itemView.findViewById(R.id.book_now);
         productImage = itemView.findViewById(R.id.productImage);

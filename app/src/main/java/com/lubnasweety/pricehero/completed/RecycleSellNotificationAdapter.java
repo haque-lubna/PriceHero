@@ -1,4 +1,4 @@
-package com.lubnasweety.pricehero;
+package com.lubnasweety.pricehero.completed;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +14,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
 import com.lubnasweety.pricehero.backEnd.Notification;
 
@@ -72,6 +73,11 @@ public class RecycleSellNotificationAdapter extends RecyclerView.Adapter<Notific
         Notification notification = notifications.get(position);
         String notificationKey = notificationKeys.get(position);
 
+        //send notification to buyer
+        DatabaseReference buyerNotification = dataHelper.getDatabase().child("users").child(notification.getBuyer()).child("notifications").child("buy");
+        DatabaseReference pendingNotification = dataHelper.getDatabase().child("users").child(notification.getBuyer()).child("notifications").child("pending");
+
+
         Glide.with(activity).load(notification.getImagePath()).into(holder.productImage);
 
         dataHelper.getDatabase().child("users").child(notification.getBuyer()).child("name").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -100,9 +106,17 @@ public class RecycleSellNotificationAdapter extends RecyclerView.Adapter<Notific
                         Integer currentAvailable = avail - notification.getProductNeeded();
                         available.setValue(String.valueOf(currentAvailable));
 
-                        //send notification to buyer
 
+                        notification.setAcceptState("accepted");
 
+//                        Calendar today = Calendar.getInstance();
+//                        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//                        String date = dateFormat.format(today);
+//
+//                        notification.setDate(date);
+
+                        buyerNotification.push().setValue(notification);
+                        pendingNotification.push().setValue(notification);
                     }
                     else {
                         Toast.makeText(activity, "not enough products available...", Toast.LENGTH_LONG).show();
@@ -120,6 +134,18 @@ public class RecycleSellNotificationAdapter extends RecyclerView.Adapter<Notific
         });
 
         holder.deny.setOnClickListener(e->{
+            //send notification to buyer
+
+            notification.setAcceptState("rejected");
+
+//            Calendar today = Calendar.getInstance();
+//            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//            String date = dateFormat.format(today);
+//
+//            notification.setDate(date);
+
+            pendingNotification.push().setValue(notification);
+
             //the following line removes the notification
             dataHelper.getDatabase().child("users").child(dataHelper.getUid()).child("notifications").child("sell").child(notificationKey).setValue(null);
         });

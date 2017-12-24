@@ -67,7 +67,7 @@ public class ShopListAdapter extends BaseAdapter {
         TextView locationEach = (TextView) convertView.findViewById(R.id.store_location_each);
         locationEach.setText(data.getLocation());
 
-        TextView availableEach = (TextView) convertView.findViewById(R.id.available_each);
+        TextView availableEach = (TextView) convertView.findViewById(R.id.needed_each);
         String availableval = String.valueOf(data.getAvailableProduct());
         availableEach.setText("Total Available : "+availableval);
 

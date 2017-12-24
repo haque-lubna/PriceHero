@@ -1,4 +1,4 @@
-package com.lubnasweety.pricehero;
+package com.lubnasweety.pricehero.completed;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,6 +14,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
 import com.lubnasweety.pricehero.backEnd.Notification;
 
@@ -94,6 +95,7 @@ public class NotificationFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 notifications = new ArrayList<>();
                 notificationKeys = new ArrayList<>();
+
                 for(DataSnapshot child: dataSnapshot.getChildren()) {
                     notificationKeys.add(child.getKey());
                     Notification sellNotification = child.getValue(Notification.class);
