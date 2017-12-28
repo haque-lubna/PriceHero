@@ -72,6 +72,7 @@ public class DataHelper {
         storage = mFirebaseStorage.getReference();
     }
 
+
     public FirebaseUser getUser() {
         return mFirebaseAuth.getCurrentUser();
 
