@@ -23,6 +23,7 @@ public class register extends AppCompatActivity implements View.OnClickListener{
     private Button btnRegister;
     private EditText editName;
     private EditText editTextEmail;
+    private EditText editPhone;
     private EditText editTextpassword;
     private TextView textviewlogin;
 
@@ -44,6 +45,7 @@ public class register extends AppCompatActivity implements View.OnClickListener{
 
         btnRegister = (Button) findViewById(R.id.btnRegister);
         editName = (EditText) findViewById(R.id.editName);
+        editPhone = (EditText) findViewById(R.id.editPhone);
         editTextEmail = (EditText) findViewById(R.id.editEmail);
         editTextpassword = (EditText) findViewById(R.id.editpassword);
         textviewlogin = (TextView) findViewById(R.id.textviewlogin);
@@ -55,6 +57,7 @@ public class register extends AppCompatActivity implements View.OnClickListener{
     private void registerUser() {
         String name = editName.getText().toString().trim();
         String email = editTextEmail.getText().toString().trim();
+        String phone = editPhone.getText().toString().trim();
         String password = editTextpassword.getText().toString().trim();
 
         if(TextUtils.isEmpty(name)){
@@ -66,7 +69,11 @@ public class register extends AppCompatActivity implements View.OnClickListener{
             Toast.makeText(this,"Please Enter the Email",Toast.LENGTH_LONG).show();
             return;
         }
-        if(TextUtils.isEmpty(password) || password.length()<=8){
+        if(TextUtils.isEmpty(phone)){
+            Toast.makeText(this,"Please Enter the Phone Number",Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(TextUtils.isEmpty(password) || password.length()<8){
             Toast.makeText(this,"Please enter a password longer than 8 characters",Toast.LENGTH_LONG).show();
             return;
         }
