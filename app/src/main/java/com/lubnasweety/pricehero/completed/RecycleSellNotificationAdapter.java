@@ -28,6 +28,7 @@ class NotificationHolder extends RecyclerView.ViewHolder {
     View view;
     ImageView productImage;
     TextView buyText;
+    //TextView buyPhoneNumber;
     Button allow;
     Button deny;
 
@@ -36,6 +37,7 @@ class NotificationHolder extends RecyclerView.ViewHolder {
         view = itemView;
         productImage = itemView.findViewById(R.id.productImage);
         buyText = itemView.findViewById(R.id.notificationText);
+        //buyPhoneNumber = itemView.findViewById(R.id.notificationPhone);
         allow = itemView.findViewById(R.id.allow);
         deny = itemView.findViewById(R.id.deny);
     }
@@ -47,7 +49,9 @@ public class RecycleSellNotificationAdapter extends RecyclerView.Adapter<Notific
     Activity activity;
     DataHelper dataHelper;
     String buyerName;
+    //String buyerPhone;
     String buyTxt;
+    String buyPhone;
 
     public RecycleSellNotificationAdapter(ArrayList<Notification> notifications, ArrayList<String> notificationKeys, Activity activity) {
         this.notifications = notifications;
@@ -84,8 +88,11 @@ public class RecycleSellNotificationAdapter extends RecyclerView.Adapter<Notific
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 buyerName = dataSnapshot.getValue(String.class);
+               // buyerPhone = dataSnapshot.getValue(String.class);
                 buyTxt = buyerName + " want to buy " + notification.getProductNeeded() + " " + notification.getProductName();
                 holder.buyText.setText(buyTxt);
+                //buyPhone = "Phone Number: "+buyerPhone;
+                //holder.buyPhoneNumber.setText(buyerPhone);
             }
 
             @Override

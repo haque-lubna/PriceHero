@@ -16,7 +16,9 @@ import com.lubnasweety.pricehero.R;
 
 public class SellerNotificationAdapter extends BaseAdapter {
 
+
     private String[] buyerName;
+   //private String[] buyerPhone;
     private Integer[] productImage;
     private String[] productID;
     private Activity context;
@@ -29,6 +31,15 @@ public class SellerNotificationAdapter extends BaseAdapter {
         this.productID = productID;
         this.context = context;
     }
+
+
+//    public SellerNotificationAdapter(String[] buyerName, String[] buyerPhone, Integer[] productImage, String[] productID, Activity context) {
+//        this.buyerName = buyerName;
+//        this.buyerPhone = buyerPhone;
+//        this.productImage = productImage;
+//        this.productID = productID;
+//        this.context = context;
+//    }
 
     @Override
     public int getCount() {
@@ -54,10 +65,12 @@ public class SellerNotificationAdapter extends BaseAdapter {
         }
 
         TextView buyername = (TextView) convertView.findViewById(R.id.notificationText);
+       // TextView buyerphone = (TextView) convertView.findViewById(R.id.notificationPhone);
         ImageView productimage = (ImageView) convertView.findViewById(R.id.productImage);
 
 
        buyername.setText(buyerName[position]);
+       //buyerphone.setText(buyerPhone[position]);
        productimage.setImageResource(productImage[position]);
         //productid.setText(productID[position]);
 
