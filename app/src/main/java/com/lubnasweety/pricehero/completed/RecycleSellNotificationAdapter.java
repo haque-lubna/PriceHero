@@ -49,7 +49,7 @@ public class RecycleSellNotificationAdapter extends RecyclerView.Adapter<Notific
     Activity activity;
     DataHelper dataHelper;
     String buyerName;
-    //String buyerPhone;
+    String buyerPhone;
     String buyTxt;
     String buyPhone;
 
@@ -84,12 +84,13 @@ public class RecycleSellNotificationAdapter extends RecyclerView.Adapter<Notific
 
         Glide.with(activity).load(notification.getImagePath()).into(holder.productImage);
 
-        dataHelper.getDatabase().child("users").child(notification.getBuyer()).child("name").addListenerForSingleValueEvent(new ValueEventListener() {
+        dataHelper.getDatabase().child("users").child(notification.getBuyer()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                buyerName = dataSnapshot.getValue(String.class);
-               // buyerPhone = dataSnapshot.getValue(String.class);
-                buyTxt = buyerName + " want to buy " + notification.getProductNeeded() + " " + notification.getProductName();
+                buyerName = dataSnapshot.child("name").getValue(String.class);
+                buyerPhone = dataSnapshot.child("phone").getValue(String.class);
+                buyTxt = buyerName + " wants to buy " + notification.getProductNeeded() + " " + notification.getProductName() + ". phone number: " +buyerPhone;
+
                 holder.buyText.setText(buyTxt);
                 //buyPhone = "Phone Number: "+buyerPhone;
                 //holder.buyPhoneNumber.setText(buyerPhone);

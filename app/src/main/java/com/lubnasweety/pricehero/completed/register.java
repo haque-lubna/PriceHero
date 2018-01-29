@@ -88,7 +88,7 @@ public class register extends AppCompatActivity implements View.OnClickListener{
                         progressdialog.cancel();
                         if(task.isSuccessful()){
                             dataHelper.getDatabase().child("users").child(dataHelper.getUid()).child("name").setValue(name);
-                            dataHelper.getDatabase().child("users").child(dataHelper.getUid()).child("phone number").setValue(phone);
+                            dataHelper.getDatabase().child("users").child(dataHelper.getUid()).child("phone").setValue(phone);
                             finish();
                             startActivity(new Intent(getApplicationContext(),Selection.class));
                         }else {
