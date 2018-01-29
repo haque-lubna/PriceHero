@@ -11,7 +11,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.lubnasweety.pricehero.backEnd.Notification;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by Asus on 12/24/2017.
@@ -57,13 +59,17 @@ class BuyerNotificationAdapter extends RecyclerView.Adapter<BuyerNotificationHol
         Glide.with(activity).load(notification.getImagePath()).into(holder.productImage);
         String currentNotification = "";
         if(notification.getAcceptState().equals("pending")) {
-            currentNotification = "Booking request for " + notification.getProductNeeded() + " " + notification.getProductName() + " sent";
+            Calendar c = Calendar.getInstance();
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String formattedDate = df.format(c.getTime());
+            notification.setDate(formattedDate);
+            currentNotification = "Booking request for " + notification.getProductNeeded() + " " + notification.getProductName() + " sent\n" + notification.getDate();
         }
         else if(notification.getAcceptState().equals("accepted")) {
-            currentNotification = "Booking request for " + notification.getProductNeeded() + " " + notification.getProductName() + " accepted";
+            currentNotification = "Booking request for " + notification.getProductNeeded() + " " + notification.getProductName() + " accepted. collect it within 3 hours\n"+ notification.getDate();
         }
         else if(notification.getAcceptState().equals("rejected")) {
-            currentNotification = "Booking request for " + notification.getProductNeeded() + " " + notification.getProductName() + " rejected";
+            currentNotification = "Booking request for " + notification.getProductNeeded() + " " + notification.getProductName() + " rejected\n" + notification.getDate() ;
         }
         holder.notificationText.setText(currentNotification);
     }

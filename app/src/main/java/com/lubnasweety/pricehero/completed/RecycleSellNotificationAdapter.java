@@ -18,7 +18,9 @@ import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
 import com.lubnasweety.pricehero.backEnd.Notification;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by Asus on 12/21/2017.
@@ -89,7 +91,13 @@ public class RecycleSellNotificationAdapter extends RecyclerView.Adapter<Notific
             public void onDataChange(DataSnapshot dataSnapshot) {
                 buyerName = dataSnapshot.child("name").getValue(String.class);
                 buyerPhone = dataSnapshot.child("phone").getValue(String.class);
-                buyTxt = buyerName + " wants to buy " + notification.getProductNeeded() + " " + notification.getProductName() + ". phone number: " +buyerPhone;
+
+                Calendar c = Calendar.getInstance();
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String formattedDate = df.format(c.getTime());
+
+                notification.setDate(formattedDate);
+                buyTxt = buyerName + " wants to buy " + notification.getProductNeeded() + " " + notification.getProductName() + ". phone number: " +buyerPhone + "\n" +notification.getDate();
 
                 holder.buyText.setText(buyTxt);
                 //buyPhone = "Phone Number: "+buyerPhone;
@@ -118,10 +126,16 @@ public class RecycleSellNotificationAdapter extends RecyclerView.Adapter<Notific
                         notification.setAcceptState("accepted");
 
 //                        Calendar today = Calendar.getInstance();
-//                        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//                        DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
 //                        String date = dateFormat.format(today);
 //
 //                        notification.setDate(date);
+
+                        Calendar c = Calendar.getInstance();
+                        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                        String formattedDate = df.format(c.getTime());
+
+                        notification.setDate(formattedDate);
 
                         buyerNotification.push().setValue(notification);
                         pendingNotification.push().setValue(notification);
@@ -147,10 +161,16 @@ public class RecycleSellNotificationAdapter extends RecyclerView.Adapter<Notific
             notification.setAcceptState("rejected");
 
 //            Calendar today = Calendar.getInstance();
-//            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//            DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
 //            String date = dateFormat.format(today);
 //
 //            notification.setDate(date);
+
+            Calendar c = Calendar.getInstance();
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String formattedDate = df.format(c.getTime());
+
+            notification.setDate(formattedDate);
 
             pendingNotification.push().setValue(notification);
 
