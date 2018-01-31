@@ -25,9 +25,9 @@
     </item>
 
     <item
-        android:id="@+id/editprofilebuyer"
-        android:icon="@drawable/ic_edit"
-        android:title="Edit Profile">
+        android:id="@+id/about"
+        android:icon="@drawable/ic_about"
+        android:title="About">
 
     </item>
 

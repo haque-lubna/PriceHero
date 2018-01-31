@@ -1,6 +1,6 @@
 <resources>
 
-    <!--&lt;!&ndash; Base application theme. &ndash;&gt;-->
+    <!-- Base application theme. -->
     <!--<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
         <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
         <!--<item name="colorPrimary">@color/colorPrimary</item>-->
@@ -16,18 +16,21 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
 
+
     </style>
     <style name="CustomToolbarStyle" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:background">@color/colorPrimary</item>
+
     </style>
-
-
-
 
     <style name="CustomPopupStyle" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:background">@color/colorAccent</item>
         <item name="overlapAnchor">false</item>
         <item name="android:dropDownVerticalOffset">-4dp</item>
+
+
     </style>
+
+    
 
 </resources>

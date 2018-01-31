@@ -20,27 +20,27 @@
 
     <Button
         android:id="@+id/buyerButton"
-        android:text="Buy something Click here"
-        android:textColor="#000"
-        android:background="#bc9c1b"
-        android:layout_width="368dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="#bc9c1b"
+        android:text="Buy something"
+        android:textColor="#181717"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.564" />
 
     <Button
         android:id="@+id/sellerButton"
-        android:text="Sell something Click here"
-        android:textColor="#000"
-        android:background="#bc9c1b"
-        android:layout_width="368dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="#bc9c1b"
+        android:text="Sell something"
+        android:textColor="#000"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.77" />
 
