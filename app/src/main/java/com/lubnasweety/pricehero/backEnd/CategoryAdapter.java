@@ -65,7 +65,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryHolder> {
     @Override
     public void onBindViewHolder(CategoryHolder holder, int position) {  //change in view happens here
         String nameOfCategory = categories.get(position);
-        holder.categoryName.setText(nameOfCategory);
+        holder.categoryName.setText(nameOfCategory.toUpperCase());
 
         itemList = new ArrayList<Product>();
         holder.categoryData.setAdapter(new ItemAdapter(categories.get(position), activity, itemList));

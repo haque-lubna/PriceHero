@@ -135,7 +135,8 @@ public class PostFragment extends Fragment {
 
 
         btnSubmit.setOnClickListener(e->{
-            productNameText = productName.getText().toString();
+
+            productNameText =  productName.getText().toString();
             productCategoryText = productCategory.getText().toString();
             productDescriptionText = productDescription.getText().toString();
             storeNameText = storeName.getText().toString();
