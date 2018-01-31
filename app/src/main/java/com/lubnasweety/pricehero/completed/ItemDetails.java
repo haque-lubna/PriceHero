@@ -92,7 +92,8 @@ public class ItemDetails extends AppCompatActivity {
 
         shops = dataHelper.getDatabase().child("products").child(category).child(name).child("shops");
 
-        shops.addValueEventListener(new ValueEventListener() {
+        shops.orderByChild("productPrice").addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 shopArrayList= new ArrayList<>();
