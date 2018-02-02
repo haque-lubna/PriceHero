@@ -86,11 +86,11 @@ class BuyerCartAdapter extends RecyclerView.Adapter<BuyerCartViewHolder> {
         shopReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String productPrice = String.valueOf(dataSnapshot.child("productPrice").getValue(Double.class));
-                String storeName = dataSnapshot.child("storeName").getValue(String.class);
-                String storeLocation = dataSnapshot.child("storeLocation").getValue(String.class);
-                String productNeeded = dataSnapshot.child("productQuantity").getValue(String.class);
-                String productOffers = dataSnapshot.child("productOffers").getValue(String.class);
+                String productPrice = "Price: " + String.valueOf(dataSnapshot.child("productPrice").getValue(Double.class));
+                String storeName = "Store Name: " + dataSnapshot.child("storeName").getValue(String.class);
+                String storeLocation = "Store Location: " + dataSnapshot.child("storeLocation").getValue(String.class);
+                String productNeeded = "Quantity: " + dataSnapshot.child("productQuantity").getValue(String.class);
+                String productOffers = "Offers: " + dataSnapshot.child("productOffers").getValue(String.class);
                 String productDescription = dataSnapshot.child("productDescription").getValue(String.class);
 
                 String bookingAcceptedTime = "Booking Accepted: " + notification.getDate();
