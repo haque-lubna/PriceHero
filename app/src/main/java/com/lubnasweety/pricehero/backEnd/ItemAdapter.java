@@ -67,7 +67,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemHolder> {
         Product product = productList.get(position); //the current product at index position
 
 
-        holder.productName.setText(product.getProductName().toLowerCase());
+        holder.productName.setText(product.getProductName());
         Glide.with(holder.productImage.getContext()).load(product.getImageAddress()).into(holder.productImage);
 
         holder.view.setOnClickListener(e->{

@@ -105,6 +105,17 @@ public class PostFragment extends Fragment {
         dataHelper = DataHelper.getInstance();
     }
 
+    public static String toTitleCase(String givenString) {
+        String[] arr = givenString.split(" ");
+        StringBuffer sb = new StringBuffer();
+
+        for (int i = 0; i < arr.length; i++) {
+            sb.append(Character.toUpperCase(arr[i].charAt(0)))
+                    .append(arr[i].substring(1)).append(" ");
+        }
+        return sb.toString().trim();
+    }
+
 
 
     @Override
@@ -136,8 +147,8 @@ public class PostFragment extends Fragment {
 
         btnSubmit.setOnClickListener(e->{
 
-            productNameText =  productName.getText().toString();
-            productCategoryText = productCategory.getText().toString();
+            productNameText =  toTitleCase(productName.getText().toString().toLowerCase());
+            productCategoryText = toTitleCase(productCategory.getText().toString().toLowerCase());
             productDescriptionText = productDescription.getText().toString();
             storeNameText = storeName.getText().toString();
             storeLocationText = storeLocation.getText().toString();
