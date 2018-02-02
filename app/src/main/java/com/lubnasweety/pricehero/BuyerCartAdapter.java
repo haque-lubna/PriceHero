@@ -9,9 +9,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lubnasweety.pricehero.backEnd.Notification;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by Tanmoy Krishna Das on 2/2/2018.
@@ -73,6 +82,59 @@ class BuyerCartAdapter extends RecyclerView.Adapter<BuyerCartViewHolder> {
         Notification notification = cartArrayList.get(position);
         Glide.with(cart).load(notification.getImagePath()).into(holder.productImage);
 
+        DatabaseReference shopReference = FirebaseDatabase.getInstance().getReference().child("products").child(notification.getProductCategory()).child(notification.getProductName()).child("shops").child(notification.getShopKey());
+        shopReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String productPrice = String.valueOf(dataSnapshot.child("productPrice").getValue(Double.class));
+                String storeName = dataSnapshot.child("storeName").getValue(String.class);
+                String storeLocation = dataSnapshot.child("storeLocation").getValue(String.class);
+                String productNeeded = dataSnapshot.child("productQuantity").getValue(String.class);
+                String productOffers = dataSnapshot.child("productOffers").getValue(String.class);
+                String productDescription = dataSnapshot.child("productDescription").getValue(String.class);
+
+                String bookingAcceptedTime = "Booking Accepted: " + notification.getDate();
+
+                holder.productPrice.setText(productPrice);
+                holder.storeName.setText(storeName);
+                holder.storeLocation.setText(storeLocation);
+                holder.productAvailable.setText(productNeeded);
+                holder.productOffer.setText(productOffers);
+                holder.productDescription.setText(productDescription);
+
+                holder.bookingAcceptedTime.setText(bookingAcceptedTime);
+
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                try {
+                    Calendar deadline = Calendar.getInstance();
+                    deadline.setTime(df.parse(notification.getDate()));
+                    deadline.add(Calendar.HOUR_OF_DAY, 3);
+
+                    String deadlineText = "Purchase Deadline: " + df.format(deadline.getTime());
+                    holder.purchaseDeadlineTime.setText(deadlineText);
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+        holder.purchaseCompleted.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                FirebaseDatabase.getInstance().getReference()
+                        .child("users").child(uid).child("notifications").child("buy")
+                        .child(notification.getPendingKey()).setValue(null);
+            }
+        });
     }
 
     @Override
