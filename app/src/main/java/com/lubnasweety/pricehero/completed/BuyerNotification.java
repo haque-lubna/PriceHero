@@ -1,4 +1,4 @@
-package com.lubnasweety.pricehero;
+package com.lubnasweety.pricehero.completed;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.lubnasweety.pricehero.completed.BuyerNotificationAdapter;
+import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
 import com.lubnasweety.pricehero.backEnd.Notification;
 

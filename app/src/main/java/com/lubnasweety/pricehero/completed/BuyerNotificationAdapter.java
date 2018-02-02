@@ -1,4 +1,4 @@
-package com.lubnasweety.pricehero;
+package com.lubnasweety.pricehero.completed;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.backEnd.Notification;
 
 import java.text.SimpleDateFormat;
@@ -31,7 +32,7 @@ class BuyerNotificationHolder extends  RecyclerView.ViewHolder {
     }
 }
 
-class BuyerNotificationAdapter extends RecyclerView.Adapter<BuyerNotificationHolder> {
+public class BuyerNotificationAdapter extends RecyclerView.Adapter<BuyerNotificationHolder> {
     ArrayList<Notification> notificationArrayList;
     Activity activity;
     public BuyerNotificationAdapter(ArrayList<Notification> notificationArrayList, Activity activity) {

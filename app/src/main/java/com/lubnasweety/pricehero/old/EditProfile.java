@@ -1,13 +1,15 @@
-package com.lubnasweety.pricehero;
+package com.lubnasweety.pricehero.old;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class About extends AppCompatActivity {
+import com.lubnasweety.pricehero.R;
+
+public class EditProfile extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+        setContentView(R.layout.activity_edit_profile);
     }
 }

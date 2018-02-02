@@ -22,7 +22,7 @@
         <activity android:name=".completed.register" />
         <activity android:name=".old.Details" />
         <activity android:name=".completed.Homepage" />
-        <activity android:name=".Booking" />
+        <activity android:name=".completed.Booking" />
         <activity
             android:name=".old.SideBar"
             android:label="PriceHero"
@@ -31,12 +31,12 @@
         <activity
             android:name=".completed.SellerHome"
             android:label="@string/title_activity_seller_home" />
-        <activity android:name=".EditProfile" />
+        <activity android:name=".old.EditProfile" />
         <activity android:name=".completed.Selection" />
         <activity android:name=".old.GroceryActivity" />
-        <activity android:name=".BuyerNotification" />
+        <activity android:name=".completed.BuyerNotification" />
         <activity android:name=".Cart" />
-        <activity android:name=".About"></activity>
+        <activity android:name=".completed.About"></activity>
     </application>
 
 </manifest>

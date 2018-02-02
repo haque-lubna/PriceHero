@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.lubnasweety.pricehero.Booking;
+import com.lubnasweety.pricehero.completed.Booking;
 import com.lubnasweety.pricehero.R;
 
 import java.util.ArrayList;

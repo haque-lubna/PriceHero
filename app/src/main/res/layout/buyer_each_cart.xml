@@ -12,17 +12,27 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="25dp">
 
+    <Button
+        android:id="@+id/purchaseCompleted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Purchase Completed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productDescription" />
+
     <ImageView
         android:id="@+id/productImage"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
         android:adjustViewBounds="true"
-        app:layout_constraintBottom_toTopOf="@+id/descriptionLabel"
+        app:layout_constraintBottom_toBottomOf="@+id/offer_each"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/price_each"
         app:srcCompat="@drawable/angti" />
 
     <TextView
@@ -35,7 +45,7 @@
         android:text="Price"
         android:textAlignment="textEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/productImage"
@@ -53,7 +63,7 @@
         android:text="Store's Name"
         android:textAlignment="textEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/price_each"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/productImage"
@@ -72,7 +82,7 @@
         android:text="Location"
         android:textAlignment="textEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/store_name_each"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/productImage"
@@ -91,7 +101,7 @@
         android:text="Needed Products"
         android:textAlignment="textEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/store_location_each"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/productImage"
@@ -109,7 +119,7 @@
         android:text="offers"
         android:textAlignment="textEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/needed_each"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/productImage"
@@ -121,12 +131,11 @@
         android:id="@+id/descriptionLabel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="Description:"
         app:layout_constraintEnd_toEndOf="@+id/offer_each"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/offer_each" />
+        app:layout_constraintStart_toStartOf="@+id/productImage"
+        app:layout_constraintTop_toBottomOf="@+id/purchaseDeadlineTime" />
 
     <TextView
         android:id="@+id/productDescription"
@@ -140,6 +149,24 @@
         app:layout_constraintStart_toStartOf="@+id/descriptionLabel"
         app:layout_constraintTop_toBottomOf="@+id/descriptionLabel"
         tools:text="Ami onek joss" />
+
+    <TextView
+        android:id="@+id/bookingAcceptedTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Booking Accepted: 2018-4-2 4:16pm"
+        app:layout_constraintStart_toStartOf="@+id/productImage"
+        app:layout_constraintTop_toBottomOf="@+id/offer_each" />
+
+    <TextView
+        android:id="@+id/purchaseDeadlineTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Purchase Deadline: 2018-4-2 7:16pm"
+        app:layout_constraintStart_toStartOf="@+id/bookingAcceptedTime"
+        app:layout_constraintTop_toBottomOf="@+id/bookingAcceptedTime" />
 
 
 </android.support.constraint.ConstraintLayout>

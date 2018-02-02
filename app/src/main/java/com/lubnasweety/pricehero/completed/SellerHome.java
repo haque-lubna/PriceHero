@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.lubnasweety.pricehero.EditProfile;
 import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
 
@@ -61,8 +60,8 @@ public class SellerHome extends AppCompatActivity implements HomeFragment.HomeFr
 
     @Override
     public void goToEditProfile() {
-        Intent goToEditProfile = new Intent(this, EditProfile.class);
-        startActivity(goToEditProfile);
+        Intent goToAbout = new Intent(this, About.class);
+        startActivity(goToAbout);
     }
 
     @Override

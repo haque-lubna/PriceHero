@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E1BEE7"
-    tools:context="com.lubnasweety.pricehero.About">
+    android:background="#ffffff"
+    tools:context="com.lubnasweety.pricehero.completed.About">
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
@@ -21,7 +21,7 @@
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="48dp"
+                android:layout_marginTop="8dp"
                 android:text="PriceHero"
                 android:textAlignment="center"
                 android:textSize="50sp"
@@ -36,9 +36,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:text="For Buyers :"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="For Buyers:"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/colorPrimary"
                 android:textSize="30sp"
@@ -48,19 +48,20 @@
 
             <TextView
                 android:id="@+id/textView15"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:editable="false"
                 android:lineSpacingExtra="10sp"
-                android:padding="10dp"
-                android:text="	A buyer can  find the cheapest and quality local deals of his necessary grocery items through this app. This app informs about any current offers going on in any shop. Get information about the available stock of your desired product in various shops.Buyer have to collect his product within the given time of  seller."
+                android:text="A buyer can find the cheapest and quality local deals of his necessary grocery items through this app. This app informs about any current offers going on in any shop. Get information about the available stock of your desired product in various shops.Buyer have to collect his product within the given time of  seller."
+                android:textAlignment="viewStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textColor="@android:color/holo_green_dark"
+                android:textColor="@color/DarkGreen"
                 android:textSize="20sp"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
@@ -70,9 +71,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:text="For Sellers :"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif"
+                android:text="For Sellers:"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@color/colorPrimary"
                 android:textSize="30sp"
@@ -84,17 +86,17 @@
 
             <TextView
                 android:id="@+id/textView17"
-                android:layout_width="wrap_content"
-                android:layout_height="314dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:lineSpacingExtra="10sp"
-                android:padding="10dp"
                 android:text="A seller can sell any product through this app.Just post your product with detail informations and pictures!"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textColor="@android:color/holo_green_dark"
+                android:textColor="@color/DarkGreen"
                 android:textSize="20sp"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView16" />
 

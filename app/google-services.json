@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1029905295082-824vvup48go5mlu24vtsb4sa1saiin8k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lubnasweety.pricehero",
+            "certificate_hash": "35f6afdad240e8548766f2e8e924059562cb1c74"
+          }
+        },
+        {
           "client_id": "1029905295082-ffp5jntgn62hjeo52e6qa99gjn8778u1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

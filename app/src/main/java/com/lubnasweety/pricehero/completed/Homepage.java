@@ -16,8 +16,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
-import com.lubnasweety.pricehero.About;
-import com.lubnasweety.pricehero.BuyerNotification;
 import com.lubnasweety.pricehero.Cart;
 import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.backEnd.CategoryAdapter;

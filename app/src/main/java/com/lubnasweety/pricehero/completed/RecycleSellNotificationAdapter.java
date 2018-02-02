@@ -122,14 +122,7 @@ public class RecycleSellNotificationAdapter extends RecyclerView.Adapter<Notific
                         Integer currentAvailable = avail - notification.getProductNeeded();
                         available.setValue(String.valueOf(currentAvailable));
 
-
                         notification.setAcceptState("accepted");
-
-//                        Calendar today = Calendar.getInstance();
-//                        DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
-//                        String date = dateFormat.format(today);
-//
-//                        notification.setDate(date);
 
                         Calendar c = Calendar.getInstance();
                         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -137,8 +130,14 @@ public class RecycleSellNotificationAdapter extends RecyclerView.Adapter<Notific
 
                         notification.setDate(formattedDate);
 
-                        buyerNotification.push().setValue(notification);
-                        pendingNotification.push().setValue(notification);
+                        String key = buyerNotification.push().getKey();
+                        notification.setPendingKey(key);
+                        buyerNotification.child(key).setValue(notification);
+
+
+                        key = pendingNotification.push().getKey();
+                        notification.setPendingKey(key);
+                        pendingNotification.child(key).setValue(notification);
                     }
                     else {
                         Toast.makeText(activity, "not enough products available...", Toast.LENGTH_LONG).show();

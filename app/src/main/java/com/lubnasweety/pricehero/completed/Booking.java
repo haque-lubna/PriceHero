@@ -1,4 +1,4 @@
-package com.lubnasweety.pricehero;
+package com.lubnasweety.pricehero.completed;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
+import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
 import com.lubnasweety.pricehero.backEnd.Notification;
 import com.lubnasweety.pricehero.backEnd.Shop;
