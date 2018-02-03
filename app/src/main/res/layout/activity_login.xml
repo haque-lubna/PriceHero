@@ -5,7 +5,7 @@
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginb"
+    android:background="@drawable/log"
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
     tools:context="com.lubnasweety.pricehero.completed.login"
