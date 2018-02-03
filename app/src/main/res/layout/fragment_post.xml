@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E1BEE7"
+    android:background="@drawable/postback"
     tools:context="com.lubnasweety.pricehero.completed.PostFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -37,6 +37,8 @@
                     android:layout_marginTop="12dp"
                     android:ems="10"
                     android:hint="Product Name"
+                    android:textColorHint="@color/White"
+                    android:backgroundTint="@color/White"
                     android:inputType="textPersonName"
                     app:layout_constraintLeft_toLeftOf="@+id/storeName"
                     app:layout_constraintStart_toStartOf="@+id/storeName"
@@ -49,7 +51,9 @@
                     android:layout_marginTop="12dp"
                     android:ems="10"
                     android:hint="Product Category"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:textColorHint="@color/White"
+                    android:backgroundTint="@color/White"/>
 
                 <EditText
                     android:id="@+id/productDescription"
@@ -58,7 +62,9 @@
                     android:layout_marginTop="12dp"
                     android:ems="10"
                     android:hint="Product Description"
-                    android:inputType="textMultiLine" />
+                    android:inputType="textMultiLine"
+                    android:textColorHint="@color/White"
+                    android:backgroundTint="@color/White"/>
 
                 <EditText
                     android:id="@+id/storeName"
@@ -68,6 +74,8 @@
                     android:ems="10"
                     android:hint="Store Name"
                     android:inputType="textPersonName"
+                    android:textColorHint="@color/White"
+                    android:backgroundTint="@color/White"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -80,6 +88,8 @@
                     android:ems="10"
                     android:hint="Store Location"
                     android:inputType="textPersonName"
+                    android:textColorHint="@color/White"
+                    android:backgroundTint="@color/White"
                     app:layout_constraintLeft_toLeftOf="@+id/storeName"
                     app:layout_constraintStart_toStartOf="@+id/storeName"
                     app:layout_constraintTop_toBottomOf="@+id/storeName" />
@@ -91,6 +101,8 @@
                     android:layout_marginTop="12dp"
                     android:ems="10"
                     android:hint="Price"
+                    android:textColorHint="@color/White"
+                    android:backgroundTint="@color/White"
                     android:inputType="numberDecimal"
                     app:layout_constraintStart_toStartOf="@+id/storeLocation"
                     app:layout_constraintTop_toBottomOf="@+id/storeLocation" />
@@ -102,6 +114,8 @@
                     android:layout_marginTop="12dp"
                     android:ems="10"
                     android:hint="Product Quantity"
+                    android:textColorHint="@color/White"
+                    android:backgroundTint="@color/White"
                     android:inputType="number"
                     app:layout_constraintEnd_toEndOf="@+id/productPrice"
                     app:layout_constraintRight_toRightOf="@+id/productPrice"
@@ -114,6 +128,8 @@
                     android:layout_marginTop="12dp"
                     android:ems="10"
                     android:hint="Add offers"
+                    android:textColorHint="@color/White"
+                    android:backgroundTint="@color/White"
                     android:inputType="textPersonName"
                     app:layout_constraintEnd_toEndOf="@+id/productQuantity"
                     app:layout_constraintRight_toRightOf="@+id/productQuantity"
@@ -132,6 +148,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="No Image Selected"
+                        android:textColor="@color/common_google_signin_btn_text_dark_default"
                         android:textSize="18sp" />
 
                     <Button
@@ -139,7 +156,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Choose Image" />
+                        android:background="@color/common_google_signin_btn_text_dark_default"
+                        android:text="Choose Image"
+                        android:textColor="?attr/colorAccent"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -147,11 +167,13 @@
 
         <Button
             android:id="@+id/btnSubmit"
-            android:layout_width="wrap_content"
+            android:layout_width="282dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:background="#BA68C8"
+            android:background="?attr/colorBackgroundFloating"
             android:text="Submit"
+            android:textColor="?attr/colorAccent"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />

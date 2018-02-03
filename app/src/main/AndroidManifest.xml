@@ -36,7 +36,7 @@
         <activity android:name=".old.GroceryActivity" />
         <activity android:name=".completed.BuyerNotification" />
         <activity android:name=".Cart" />
-        <activity android:name=".completed.About"></activity>
+        <activity android:name=".completed.About" />
     </application>
 
 </manifest>
