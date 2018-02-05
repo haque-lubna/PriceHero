@@ -5,16 +5,14 @@
     android:id="@+id/item_details_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B0BEC5"
+
     tools:context="com.lubnasweety.pricehero.old.productDetails">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/productDataLayout"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="4dp"
+        android:background="?attr/colorAccent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -24,7 +22,6 @@
             android:id="@+id/productImage"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="11dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/oil" />
@@ -35,10 +32,9 @@
             android:layout_height="30dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="4dp"
-
             android:fontFamily="sans-serif"
             android:text="Radhuni Mustard oil"
-            android:textColor="@android:color/background_dark"
+            android:textColor="#fff"
             android:textSize="24sp"
             app:layout_constraintLeft_toRightOf="@id/productImage"
             app:layout_constraintTop_toTopOf="parent" />
@@ -48,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Grocery"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/productName"
@@ -79,9 +75,10 @@
             app:layoutManager="android.support.v7.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.07"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.48000002">
 
         </android.support.v7.widget.RecyclerView>
     </android.support.constraint.ConstraintLayout>

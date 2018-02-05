@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#BDBDBD"
+    android:background="#fff"
     android:orientation="vertical"
     android:paddingBottom="8dp">
 
@@ -17,8 +17,9 @@
         android:layout_marginTop="12dp"
         android:gravity="center"
         android:text="A user wants to buy something..."
-        android:textColor="#000"
+        android:textColor="#1c9e8f"
         android:textSize="23dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"

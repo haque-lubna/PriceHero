@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -23,6 +24,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
     private EditText editLoginEmail;
     private EditText editLoginPassword;
     private TextView textViewSignup;
+
 
     private ProgressDialog progressDialog;
     private DataHelper dataHelper;
@@ -40,6 +42,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
         textViewSignup = (TextView)findViewById(R.id.textViewRegister);
 
 
+
         progressDialog=new ProgressDialog(this);
 
         if(dataHelper.getUser()!=null){
@@ -51,6 +54,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
         btnlogin.setOnClickListener(this);
         textViewSignup.setOnClickListener(this);
     }
+
 
     public void userLogin() {
         String email= editLoginEmail.getText().toString().trim();
