@@ -87,6 +87,7 @@ public class register extends AppCompatActivity implements View.OnClickListener{
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressdialog.cancel();
                         if(task.isSuccessful()){
+                            ///user-> name , phone child create
                             dataHelper.getDatabase().child("users").child(dataHelper.getUid()).child("name").setValue(name);
                             dataHelper.getDatabase().child("users").child(dataHelper.getUid()).child("phone").setValue(phone);
                             finish();

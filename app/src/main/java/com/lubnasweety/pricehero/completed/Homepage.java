@@ -51,7 +51,7 @@ public class Homepage extends AppCompatActivity implements SearchView.OnQueryTex
 
         categoryList.setAdapter(new CategoryAdapter(categories, searchText, Homepage.this));
 
-
+         ///product child create
         DatabaseReference products = dataHelper.getDatabase().child("products");
         products.addValueEventListener(new ValueEventListener() {
             @Override

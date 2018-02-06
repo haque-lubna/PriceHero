@@ -70,6 +70,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryHolder> {
         itemList = new ArrayList<Product>();
         holder.categoryData.setAdapter(new ItemAdapter(categories.get(position), activity, itemList));
 
+        ///category name nea child create
         DatabaseReference products = dataHelper.getDatabase().child("products").child(nameOfCategory);
 
         products.addValueEventListener(new ValueEventListener() {
