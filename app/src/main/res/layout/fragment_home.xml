@@ -19,8 +19,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="225dp"
-                android:background="#9b26AF"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="@drawable/start">
 
                 <ImageView
                     android:layout_width="wrap_content"
