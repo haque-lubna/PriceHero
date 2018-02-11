@@ -143,6 +143,12 @@
                     app:layout_constraintRight_toRightOf="@+id/productQuantity"
                     app:layout_constraintTop_toBottomOf="@+id/productQuantity" />
 
+                <Button
+                    android:id="@+id/selectMap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Set location" />
+
                 <LinearLayout
                     android:id="@+id/imagePickLayout"
                     android:layout_width="match_parent"

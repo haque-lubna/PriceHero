@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.storage.UploadTask;
+import com.lubnasweety.pricehero.MapsActivityBuyer;
 import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
 
@@ -54,6 +55,7 @@ public class PostFragment extends Fragment {
     TextView imageName;
     Button btnChooseImage;
     Button btnSubmit;
+    Button setMap;
 
     View v;
     Uri selectedImageUri;
@@ -135,12 +137,17 @@ public class PostFragment extends Fragment {
         imageName = (TextView) v.findViewById(R.id.imageName);
         btnChooseImage = (Button) v.findViewById(R.id.btnChooseImage);
         btnSubmit = (Button) v.findViewById(R.id.btnSubmit);
+        setMap = (Button) v.findViewById(R.id.selectMap);
 
         btnChooseImage.setOnClickListener(e->{
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
             intent.setType("image/jpeg");
             intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
             startActivityForResult(Intent.createChooser(intent, "Complete action using"), RC_PHOTO_PICKER);
+        });
+
+        setMap.setOnClickListener(e->{
+            startActivity(new Intent(getActivity(), MapsActivityBuyer.class));
         });
 
 
