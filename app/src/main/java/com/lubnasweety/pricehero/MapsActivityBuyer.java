@@ -1,6 +1,7 @@
 package com.lubnasweety.pricehero;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
@@ -24,6 +25,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.lubnasweety.pricehero.completed.PostFragment;
 
 
 public class MapsActivityBuyer extends FragmentActivity implements OnMapReadyCallback,
@@ -44,6 +46,7 @@ public class MapsActivityBuyer extends FragmentActivity implements OnMapReadyCal
     private Marker currentLocationmMarker;
     int PROXIMITY_RADIUS = 10000;
     double latitude,longitude;
+    public  static LatLng buyerLatlng;
 
 
     @Override
@@ -61,7 +64,6 @@ public class MapsActivityBuyer extends FragmentActivity implements OnMapReadyCal
         mapFragment.getMapAsync(this);
 
     }
-
 
     /**
      * Manipulates the map once available.
@@ -82,21 +84,19 @@ public class MapsActivityBuyer extends FragmentActivity implements OnMapReadyCal
         }
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
-            public void onMapClick(LatLng latLng) {
-                mMap.addMarker(new MarkerOptions().position(latLng));
-
+            public void onMapClick(LatLng point) {
+                mMap.addMarker(new MarkerOptions().position(point));
+                //Shop.latLng=point;
+                buyerLatlng=point;
+                //openPostFragment();
             }
         });
-
-
     }
     protected synchronized void bulidGoogleApiClient() {
         client = new GoogleApiClient.Builder(this).addConnectionCallbacks(this).addOnConnectionFailedListener(this).addApi(LocationServices.API).build();
         client.connect();
 
     }
-
-
 
 
     @Override
@@ -166,5 +166,8 @@ public class MapsActivityBuyer extends FragmentActivity implements OnMapReadyCal
         {
             LocationServices.FusedLocationApi.removeLocationUpdates(client,this);
         }
+    }
+    public void openPostFragment(){
+        startActivity(new Intent(this, PostFragment.class));
     }
 }

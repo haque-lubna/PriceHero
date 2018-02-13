@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.storage.UploadTask;
 import com.lubnasweety.pricehero.MapsActivityBuyer;
 import com.lubnasweety.pricehero.R;
@@ -71,6 +72,7 @@ public class PostFragment extends Fragment {
     String productPriceText;
     String productQuantityText;
     String productOffersText;
+    public LatLng latLng;
 
 
     private OnFragmentInteractionListener mListener;
@@ -148,6 +150,7 @@ public class PostFragment extends Fragment {
 
         setMap.setOnClickListener(e->{
             startActivity(new Intent(getActivity(), MapsActivityBuyer.class));
+            latLng=MapsActivityBuyer.buyerLatlng;
         });
 
 
@@ -191,7 +194,7 @@ public class PostFragment extends Fragment {
             }).addOnSuccessListener( taskSnapshot ->  {
                     imagePath = taskSnapshot.getDownloadUrl().toString();
                     dialog.setTitle("Uploading product info...");
-                    dataHelper.pushProduct(productNameText, productCategoryText, productDescriptionText, storeNameText, storeLocationText, productPriceText, productQuantityText, productOffersText, imagePath);
+                    dataHelper.pushProduct(productNameText, productCategoryText, productDescriptionText, storeNameText, storeLocationText, productPriceText, productQuantityText, productOffersText, imagePath,latLng);
                     dialog.cancel();
                     Toast.makeText(getActivity(), "Product added...", Toast.LENGTH_LONG).show();
 
@@ -201,6 +204,7 @@ public class PostFragment extends Fragment {
         });
 
         return v;
+
     }
 
     @Override

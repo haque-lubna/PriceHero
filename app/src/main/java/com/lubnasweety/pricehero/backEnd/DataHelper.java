@@ -2,6 +2,7 @@ package com.lubnasweety.pricehero.backEnd;
 
 import android.net.Uri;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -54,13 +55,13 @@ public class DataHelper {
         return mFirebaseAuth.getCurrentUser().getUid();
     }
 
-    public void pushProduct(String productName, String productCategory, String productDescription, String storeName, String storeLocation, String productPrice, String productQuantity, String productOffers, String imagePath) {
+    public void pushProduct(String productName, String productCategory, String productDescription, String storeName, String storeLocation, String productPrice, String productQuantity, String productOffers, String imagePath,LatLng bLatlng) {
         DatabaseReference product = database.child("products").child(productCategory).child(productName);
         product.child("name").setValue(productName);
         product.child("image").setValue(imagePath);
         product.child("category").setValue(productCategory);
 
-        Shop shop = new Shop(productDescription, storeName, storeLocation, productQuantity, productOffers, Double.parseDouble(productPrice), getUid(), imagePath);
+        Shop shop = new Shop(productDescription, storeName, storeLocation, productQuantity, productOffers, Double.parseDouble(productPrice), getUid(), imagePath,bLatlng);
         product.child("shops").push().setValue(shop);
     }
 
