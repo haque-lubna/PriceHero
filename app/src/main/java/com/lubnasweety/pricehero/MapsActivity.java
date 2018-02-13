@@ -41,7 +41,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleApiClient client;
 
     //jshjdsh
-    public Location lastlocation;
+    public static Location lastlocation;
     private Marker currentLocationmMarker;
     int PROXIMITY_RADIUS = 10000;
     double latitude, longitude;
@@ -56,7 +56,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
-
         }
         mapFragment.getMapAsync(this);
 
@@ -74,34 +73,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        //Marker bismillah;
-//        LatLng bsl = new LatLng(24.918078, 91.831047);
-//        MarkerOptions markerOptions = new MarkerOptions();
-//        markerOptions.position(bsl);
-//        markerOptions.title("iict Location");
-//        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-//
-//        Marker bismillah2;
-//        LatLng bsl2 = new LatLng(24, 91);
-//        MarkerOptions markerOptions2 = new MarkerOptions();
-//        markerOptions.position(bsl2);
-//        markerOptions.title("lubna sweety store");
-//        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-//        bismillah=mMap.addMarker(markerOptions);
-//
-//        Marker bismillah3;
-//        LatLng bsl3 = new LatLng(24.4, 91.5);
-//        MarkerOptions markerOptions3 = new MarkerOptions();
-//        markerOptions.position(bsl2);
-//        markerOptions.title("lubna sweety store");
-//        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-//        bismillah=mMap.addMarker(markerOptions);
+
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             bulidGoogleApiClient();
             mMap.setMyLocationEnabled(true);
         }
-        //getLocation();
+
     }
 
     protected synchronized void bulidGoogleApiClient() {
@@ -120,17 +98,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             LocationServices.FusedLocationApi.requestLocationUpdates(client, locationRequest, this);
-//            mFusedLocationClient.getLastLocation()
-//                    .addOnSuccessListener(this, new OnSuccessListener<Location>() {
-//                        @Override
-//                        public void onSuccess(Location location) {
-//                            // Got last known location. In some rare situations this can be null.
-//                            if (location != null) {
-//                                lastlocation=location;
-//                                Toast.makeText(MapsActivity.this,"gotcha",Toast.LENGTH_LONG).show();
-//                            }
-//                        }
-//                    });
         }
     }
 
@@ -166,7 +133,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         lastlocation = location;
         if (currentLocationmMarker != null) {
             currentLocationmMarker.remove();
-
         }
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         MarkerOptions markerOptions = new MarkerOptions();
@@ -182,11 +148,5 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    public void getLocation() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
-            return;
-        }
-
-    }
 }

@@ -15,9 +15,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.model.LatLng;
 import com.lubnasweety.pricehero.MapsActivity;
-import com.lubnasweety.pricehero.completed.Booking;
 import com.lubnasweety.pricehero.R;
-import com.lubnasweety.pricehero.completed.Homepage;
+import com.lubnasweety.pricehero.completed.Booking;
 import com.lubnasweety.pricehero.completed.ItemDetails;
 
 import java.util.ArrayList;
@@ -57,13 +56,18 @@ public class RecyclerShopListAdapter extends RecyclerView.Adapter<ShopHolder> {
     ArrayList<String> shopKeyArrayList;
     Activity activity;
     LayoutInflater inflater;
-    Location currentLocation= Homepage.lastKnownLocation;
+    Location currentLocation= new Location("Fake Location");
+    //Location currentLocation=lastLocation;
+    LatLng sust=new LatLng(24.9227607,91.8272716);
+
 
     public RecyclerShopListAdapter(ArrayList<Shop> shopArrayList, ArrayList<String> shopKeyArrayList, Activity activity) {
         this.shopArrayList = shopArrayList;
         this.shopKeyArrayList = shopKeyArrayList;
         this.activity = activity;
         inflater = activity.getLayoutInflater();
+        currentLocation.setLatitude(sust.latitude);
+        currentLocation.setLongitude(sust.longitude);
 
     }
 
