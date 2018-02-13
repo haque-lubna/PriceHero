@@ -2,6 +2,7 @@ package com.lubnasweety.pricehero.completed;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.MenuBuilder;
@@ -11,12 +12,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationRequest;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.lubnasweety.pricehero.Cart;
+import com.lubnasweety.pricehero.MapsActivity;
 import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.backEnd.CategoryAdapter;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
@@ -24,13 +29,20 @@ import com.lubnasweety.pricehero.backEnd.DataHelper;
 import java.util.ArrayList;
 
 
-public class Homepage extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class Homepage extends AppCompatActivity implements SearchView.OnQueryTextListener{
 
     RecyclerView categoryList;
     Intent goToItemDetails;
     DataHelper dataHelper;
     ArrayList<String> categories=new ArrayList<>();
     String searchText="";
+    private FusedLocationProviderClient mFusedLocationClient;
+    public static Location lastKnownLocation;
+    private LocationRequest locationRequest;
+    public static final int REQUEST_LOCATION_CODE = 99;
+
+
+    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +62,8 @@ public class Homepage extends AppCompatActivity implements SearchView.OnQueryTex
         categories = new ArrayList<String>();
 
         categoryList.setAdapter(new CategoryAdapter(categories, searchText, Homepage.this));
+        Intent i= new Intent(this, MapsActivity.class);
+        startActivity(i);
 
          ///product child create
         DatabaseReference products = dataHelper.getDatabase().child("products");
@@ -125,7 +139,6 @@ public class Homepage extends AppCompatActivity implements SearchView.OnQueryTex
         categoryList.setAdapter(new CategoryAdapter(categories, searchText, Homepage.this));
         return true;
     }
-
 
 
 }

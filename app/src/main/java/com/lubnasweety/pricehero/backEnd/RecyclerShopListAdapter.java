@@ -3,6 +3,7 @@ package com.lubnasweety.pricehero.backEnd;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.location.Location;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,16 +13,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.maps.model.LatLng;
 import com.lubnasweety.pricehero.MapsActivity;
 import com.lubnasweety.pricehero.completed.Booking;
 import com.lubnasweety.pricehero.R;
+import com.lubnasweety.pricehero.completed.Homepage;
 import com.lubnasweety.pricehero.completed.ItemDetails;
 
 import java.util.ArrayList;
 
-/**
- * Created by Asus on 12/19/2017.
- */
+
 
 class ShopHolder extends RecyclerView.ViewHolder {
     TextView productPrice;
@@ -56,12 +57,14 @@ public class RecyclerShopListAdapter extends RecyclerView.Adapter<ShopHolder> {
     ArrayList<String> shopKeyArrayList;
     Activity activity;
     LayoutInflater inflater;
+    Location currentLocation= Homepage.lastKnownLocation;
 
     public RecyclerShopListAdapter(ArrayList<Shop> shopArrayList, ArrayList<String> shopKeyArrayList, Activity activity) {
         this.shopArrayList = shopArrayList;
         this.shopKeyArrayList = shopKeyArrayList;
         this.activity = activity;
         inflater = activity.getLayoutInflater();
+
     }
 
     @Override
@@ -111,5 +114,12 @@ public class RecyclerShopListAdapter extends RecyclerView.Adapter<ShopHolder> {
     public int getItemCount() {
 
         return shopArrayList.size();
+    }
+    public double distBetweenPoints(Location origin ,LatLng dest){
+        Location endLocation=new Location("dest");
+        endLocation.setLatitude(dest.latitude);
+        endLocation.setLongitude(dest.longitude);
+        double distance= origin.distanceTo(endLocation);
+        return distance;
     }
 }
