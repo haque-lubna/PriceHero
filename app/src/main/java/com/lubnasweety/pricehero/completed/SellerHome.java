@@ -11,11 +11,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
 
 public class SellerHome extends AppCompatActivity implements HomeFragment.HomeFragmentListener {
     DataHelper dataHelper;
+    LatLng lat;
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -75,5 +77,8 @@ public class SellerHome extends AppCompatActivity implements HomeFragment.HomeFr
         Toast.makeText(this, "Logged Out", Toast.LENGTH_SHORT).show();
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }

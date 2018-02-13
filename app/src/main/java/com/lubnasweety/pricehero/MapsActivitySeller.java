@@ -28,7 +28,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.lubnasweety.pricehero.completed.PostFragment;
 
 
-public class MapsActivityBuyer extends FragmentActivity implements OnMapReadyCallback,
+public class MapsActivitySeller extends FragmentActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener {
@@ -52,7 +52,7 @@ public class MapsActivityBuyer extends FragmentActivity implements OnMapReadyCal
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps_buyer);
+        setContentView(R.layout.activity_maps_seller);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.mapBuyer);
@@ -86,9 +86,10 @@ public class MapsActivityBuyer extends FragmentActivity implements OnMapReadyCal
             @Override
             public void onMapClick(LatLng point) {
                 mMap.addMarker(new MarkerOptions().position(point));
-                //Shop.latLng=point;
+
                 buyerLatlng=point;
-                //openPostFragment();
+                finish();
+
             }
         });
     }

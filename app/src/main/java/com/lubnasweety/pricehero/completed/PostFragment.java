@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.storage.UploadTask;
-import com.lubnasweety.pricehero.MapsActivityBuyer;
+import com.lubnasweety.pricehero.MapsActivitySeller;
 import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
 
@@ -72,7 +72,7 @@ public class PostFragment extends Fragment {
     String productPriceText;
     String productQuantityText;
     String productOffersText;
-    public LatLng latLng;
+    public static LatLng latLng;
 
 
     private OnFragmentInteractionListener mListener;
@@ -149,8 +149,9 @@ public class PostFragment extends Fragment {
         });
 
         setMap.setOnClickListener(e->{
-            startActivity(new Intent(getActivity(), MapsActivityBuyer.class));
-            latLng=MapsActivityBuyer.buyerLatlng;
+            Intent i=new Intent(getActivity(), MapsActivitySeller.class);
+            startActivity(i);
+            latLng= MapsActivitySeller.buyerLatlng;
         });
 
 
@@ -258,5 +259,6 @@ public class PostFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 }
 

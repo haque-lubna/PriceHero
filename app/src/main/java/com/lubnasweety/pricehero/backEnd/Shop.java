@@ -34,6 +34,10 @@ public class Shop implements Serializable {
         this.sellerUid = sellerUid;
         this.imageUrl = imageUrl;
         this.latLng=latLng;
+
+    }
+    public  Shop(LatLng point){
+        latLng=point;
     }
 
     public String getProductDescription() {

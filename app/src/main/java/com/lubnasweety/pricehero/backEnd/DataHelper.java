@@ -45,7 +45,6 @@ public class DataHelper {
         mFirebaseAuth.signOut();
     }
 
-
     public UploadTask uploadImage(Uri uri) {
         String currentTime = String.valueOf(System.currentTimeMillis());
         return storage.child("images").child(currentTime).child(uri.getLastPathSegment()).putFile(uri);
@@ -61,8 +60,11 @@ public class DataHelper {
         product.child("image").setValue(imagePath);
         product.child("category").setValue(productCategory);
 
+
         Shop shop = new Shop(productDescription, storeName, storeLocation, productQuantity, productOffers, Double.parseDouble(productPrice), getUid(), imagePath,bLatlng);
+        //Shop shop=new Shop((bLatlng));
         product.child("shops").push().setValue(shop);
+
     }
 
     private DataHelper() {
@@ -72,7 +74,6 @@ public class DataHelper {
         mFirebaseStorage = FirebaseStorage.getInstance();
         storage = mFirebaseStorage.getReference();
     }
-
 
     public FirebaseUser getUser() {
         return mFirebaseAuth.getCurrentUser();
