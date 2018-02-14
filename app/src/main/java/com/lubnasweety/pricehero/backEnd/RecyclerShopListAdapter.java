@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.lubnasweety.pricehero.MapsActivity;
 import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.completed.Booking;
 import com.lubnasweety.pricehero.completed.ItemDetails;
@@ -32,7 +31,7 @@ class ShopHolder extends RecyclerView.ViewHolder {
     ImageView productImage;
     TextView productDescription;
     Button bookNow;
-    Button seeMap;
+    //Button seeMap;
     View view;
 
 
@@ -44,7 +43,7 @@ class ShopHolder extends RecyclerView.ViewHolder {
         productAvailable = itemView.findViewById(R.id.needed_each);
         productOffer = itemView.findViewById(R.id.offer_each);
         bookNow = itemView.findViewById(R.id.book_now);
-        seeMap = itemView.findViewById(R.id.seeMap);
+       // seeMap = itemView.findViewById(R.id.seeMap);
         productImage = itemView.findViewById(R.id.productImage);
         productDescription = itemView.findViewById(R.id.productDescription);
         view = itemView;
@@ -133,10 +132,10 @@ public class RecyclerShopListAdapter extends RecyclerView.Adapter<ShopHolder> {
             activity.startActivity(goToBooking);
         });
 
-       holder.seeMap.setOnClickListener(e->{
-            Intent goToMap = new Intent(activity, MapsActivity.class);
-            activity.startActivity(goToMap);
-        });
+//       holder.seeMap.setOnClickListener(e->{
+//            Intent goToMap = new Intent(activity, MapsActivity.class);
+//            activity.startActivity(goToMap);
+//        });
 
 
     }
