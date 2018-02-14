@@ -15,7 +15,7 @@
         android:layout_gravity="center"
         android:adjustViewBounds="true"
         android:scaleType="centerInside"
-        app:srcCompat="@drawable/angti" />
+        app:srcCompat="@drawable/loading001" />
 
     <TextView
         android:id="@+id/productName"

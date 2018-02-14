@@ -22,7 +22,7 @@
         app:layout_constraintBottom_toTopOf="@+id/descriptionLabel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/angti" />
+        app:srcCompat="@drawable/loading001" />
 
     <TextView
         android:id="@+id/price_each"
@@ -171,11 +171,11 @@
         android:id="@+id/seeMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="0dp"
         android:background="?attr/colorAccent"
         android:text="See  Map"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/productDescription" />
 

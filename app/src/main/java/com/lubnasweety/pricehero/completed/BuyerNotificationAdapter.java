@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.lubnasweety.pricehero.R;
+import com.lubnasweety.pricehero.backEnd.GlideApp;
 import com.lubnasweety.pricehero.backEnd.Notification;
 
 import java.text.SimpleDateFormat;
@@ -57,7 +57,7 @@ public class BuyerNotificationAdapter extends RecyclerView.Adapter<BuyerNotifica
     public void onBindViewHolder(BuyerNotificationHolder holder, int position) {
         Notification notification = notificationArrayList.get(position);
 
-        Glide.with(activity).load(notification.getImagePath()).into(holder.productImage);
+        GlideApp.with(activity).load(notification.getImagePath()).placeholder(starting.loading).into(holder.productImage);
         String currentNotification = "";
         if(notification.getAcceptState().equals("pending")) {
             Calendar c = Calendar.getInstance();

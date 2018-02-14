@@ -1,9 +1,11 @@
 package com.lubnasweety.pricehero.completed;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +31,10 @@ public class ItemDetails extends AppCompatActivity {
     ArrayList<Shop> shopArrayList;
     ArrayList<String> shopKeyArrayList;
     DatabaseReference shops;
+
+    Button sortByPrice, sortByDistance;
+
+    static Drawable loading;
 
     String name;
     String category;
@@ -67,13 +73,16 @@ public class ItemDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_details);
 
+        loading = getResources().getDrawable( R.drawable.loading001);
+
         DataHelper dataHelper = DataHelper.getInstance();
 
         productName = (TextView) findViewById(R.id.productName);
         productCategory = (TextView) findViewById(R.id.productCategory);
         productImage = (ImageView) findViewById(R.id.productImage);
 
-
+        sortByPrice = (Button) findViewById(R.id.sortByPrice);
+        sortByDistance = (Button) findViewById(R.id.sortByDistance);
 
         name = getIntent().getStringExtra("productName");
         category = getIntent().getStringExtra("productCategory");
@@ -87,6 +96,24 @@ public class ItemDetails extends AppCompatActivity {
 
 
         shopList = (RecyclerView) findViewById(R.id.shopList);
+
+
+        sortByPrice.setOnClickListener(e->{
+            RecyclerShopListAdapter currentAdapter = (RecyclerShopListAdapter) shopList.getAdapter();
+            if(currentAdapter!=null) {
+                currentAdapter.sortByPrice();
+                currentAdapter.notifyDataSetChanged();
+            }
+        });
+
+        sortByDistance.setOnClickListener(e->{
+            RecyclerShopListAdapter currentAdapter = (RecyclerShopListAdapter) shopList.getAdapter();
+            if(currentAdapter!=null) {
+                currentAdapter.sortByDistance();
+                currentAdapter.notifyDataSetChanged();
+            }
+        });
+
 
         shopArrayList = new ArrayList<>();
 

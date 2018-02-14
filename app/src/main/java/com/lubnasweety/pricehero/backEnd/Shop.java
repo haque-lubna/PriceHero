@@ -1,7 +1,5 @@
 package com.lubnasweety.pricehero.backEnd;
 
-import com.google.android.gms.maps.model.LatLng;
-
 import java.io.Serializable;
 
 /**
@@ -17,14 +15,14 @@ public class Shop implements Serializable {
     Double productPrice;
     String sellerUid;
     String imageUrl;
-    LatLng latLng;
+    iLatLng latLng;
 
 
     public Shop() {
 
     }
 
-    public Shop(String productDescription, String storeName, String storeLocation, String productQuantity, String productOffers, Double productPrice, String sellerUid, String imageUrl,LatLng latLng) {
+    public Shop(String productDescription, String storeName, String storeLocation, String productQuantity, String productOffers, Double productPrice, String sellerUid, String imageUrl,iLatLng latLng) {
         this.productDescription = productDescription;
         this.storeName = storeName;
         this.storeLocation = storeLocation;
@@ -36,7 +34,7 @@ public class Shop implements Serializable {
         this.latLng=latLng;
 
     }
-    public  Shop(LatLng point){
+    public  Shop(iLatLng point){
         latLng=point;
     }
 
@@ -103,11 +101,11 @@ public class Shop implements Serializable {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
-    public LatLng getLatLng(){
+    public iLatLng getLatLng(){
         return latLng;
     }
-    public void setLatLng(LatLng latLng){
-        this.latLng=latLng;
-    }
 
+    public void setLatLng(iLatLng latLng) {
+        this.latLng = latLng;
+    }
 }

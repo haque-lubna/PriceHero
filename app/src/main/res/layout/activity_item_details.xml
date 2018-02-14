@@ -11,7 +11,7 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/productDataLayout"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="190dp"
         android:background="?attr/colorAccent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -30,7 +30,7 @@
             android:id="@+id/productName"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="4dp"
             android:layout_marginTop="4dp"
             android:fontFamily="sans-serif"
             android:text="Radhuni Mustard oil"
@@ -43,12 +43,33 @@
             android:id="@+id/productCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="Grocery"
             android:textColor="#fff"
             android:textSize="18dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/productName"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/productName" />
+
+        <Button
+            android:id="@+id/sortByPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:text="Sort By Price"
+            app:layout_constraintStart_toEndOf="@+id/productImage"
+            app:layout_constraintTop_toBottomOf="@+id/productCategory" />
+
+        <Button
+            android:id="@+id/sortByDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Sort By Distance"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/sortByPrice"
+            app:layout_constraintTop_toBottomOf="@+id/sortByPrice" />
 
     </android.support.constraint.ConstraintLayout>
 

@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -25,6 +26,8 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import static java.lang.Thread.sleep;
 
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
@@ -146,6 +149,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (client != null) {
             LocationServices.FusedLocationApi.removeLocationUpdates(client, this);
         }
+
+        TextView loadingStatus = findViewById(R.id.loadingStatus);
+        loadingStatus.setText("Location Detected");
+
+        new Thread(()->{
+            try {
+                sleep(1000);
+                runOnUiThread(()->finish());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 
 

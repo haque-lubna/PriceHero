@@ -9,13 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
+import com.lubnasweety.pricehero.backEnd.GlideApp;
 import com.lubnasweety.pricehero.backEnd.Notification;
 
 import java.text.SimpleDateFormat;
@@ -84,7 +84,7 @@ public class RecycleSellNotificationAdapter extends RecyclerView.Adapter<Notific
         DatabaseReference pendingNotification = dataHelper.getDatabase().child("users").child(notification.getBuyer()).child("notifications").child("pending");
 
 
-        Glide.with(activity).load(notification.getImagePath()).into(holder.productImage);
+        GlideApp.with(activity).load(notification.getImagePath()).placeholder(starting.loading).into(holder.productImage);
 
         dataHelper.getDatabase().child("users").child(notification.getBuyer()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

@@ -19,6 +19,7 @@ import com.google.firebase.storage.UploadTask;
 import com.lubnasweety.pricehero.MapsActivitySeller;
 import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.backEnd.DataHelper;
+import com.lubnasweety.pricehero.backEnd.iLatLng;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
@@ -43,6 +44,7 @@ public class PostFragment extends Fragment {
     private String mParam2;
 
     static final int RC_PHOTO_PICKER = 1;
+    static final int RC_MAP_LOCATOR = 2;
 
     DataHelper dataHelper;
     EditText productName;
@@ -72,7 +74,7 @@ public class PostFragment extends Fragment {
     String productPriceText;
     String productQuantityText;
     String productOffersText;
-    public static LatLng latLng;
+    public static iLatLng latLng, prevLatLng;
 
 
     private OnFragmentInteractionListener mListener;
@@ -150,8 +152,9 @@ public class PostFragment extends Fragment {
 
         setMap.setOnClickListener(e->{
             Intent i=new Intent(getActivity(), MapsActivitySeller.class);
-            startActivity(i);
-            latLng= MapsActivitySeller.buyerLatlng;
+            LatLng iprevLatLng= MapsActivitySeller.buyerLatlng;
+            if(prevLatLng!=null) prevLatLng = new iLatLng(iprevLatLng.latitude, iprevLatLng.longitude);
+            startActivityForResult(i, RC_MAP_LOCATOR);
         });
 
 
@@ -176,7 +179,8 @@ public class PostFragment extends Fragment {
                     ||productPriceText == null || productPriceText.equals("")
                     ||productQuantityText == null ||productQuantityText.equals("")
                     ||productOffersText == null || productOffersText.equals("")
-                    ||selectedImageUri == null || selectedImageUri.equals("")){
+                    ||selectedImageUri == null || selectedImageUri.equals("")
+                    || prevLatLng==latLng){
                 Toast.makeText(getActivity(), "Please Enter all values...",Toast.LENGTH_LONG).show();
                 return;
             }
@@ -218,6 +222,10 @@ public class PostFragment extends Fragment {
             } else if(resultCode==RESULT_CANCELED) {
                 Toast.makeText(getActivity(), "Image Choosing Failed", Toast.LENGTH_LONG).show();
             }
+        }
+        if(requestCode==RC_MAP_LOCATOR) {
+            LatLng ilatLng = MapsActivitySeller.buyerLatlng;
+            latLng = new iLatLng(ilatLng.latitude, ilatLng.longitude);
         }
     }
 

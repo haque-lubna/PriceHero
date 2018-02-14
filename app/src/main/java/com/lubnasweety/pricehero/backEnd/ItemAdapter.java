@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.completed.ItemDetails;
+import com.lubnasweety.pricehero.completed.starting;
 
 import java.util.ArrayList;
 
@@ -68,7 +68,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemHolder> {
 
 
         holder.productName.setText(product.getProductName());
-        Glide.with(holder.productImage.getContext()).load(product.getImageAddress()).into(holder.productImage);
+        GlideApp.with(holder.productImage.getContext()).load(product.getImageAddress()).placeholder(starting.loading).into(holder.productImage);
 
         holder.view.setOnClickListener(e->{
             Intent goToItemDetails = new Intent(holder.view.getContext(), ItemDetails.class);

@@ -12,15 +12,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.google.android.gms.maps.model.LatLng;
 import com.lubnasweety.pricehero.MapsActivity;
 import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.completed.Booking;
 import com.lubnasweety.pricehero.completed.ItemDetails;
+import com.lubnasweety.pricehero.completed.starting;
 
 import java.util.ArrayList;
-
+import java.util.Collections;
+import java.util.Comparator;
 
 
 class ShopHolder extends RecyclerView.ViewHolder {
@@ -58,7 +58,20 @@ public class RecyclerShopListAdapter extends RecyclerView.Adapter<ShopHolder> {
     LayoutInflater inflater;
     Location currentLocation= new Location("Fake Location");
     //Location currentLocation=lastLocation;
-    LatLng sust=new LatLng(24.9227607,91.8272716);
+    iLatLng sust=new iLatLng(24.9227607,91.8272716);
+
+    static ArrayList<Double> distances = new ArrayList<>();
+    ArrayList<Integer> index = new ArrayList<>();
+
+
+    public static Comparator<Integer> compareByDistance = new Comparator<Integer>() {
+        @Override
+        public int compare(Integer integer, Integer t1) {
+            return distances.get(integer).compareTo(distances.get(t1));
+        }
+    };
+
+
 
 
     public RecyclerShopListAdapter(ArrayList<Shop> shopArrayList, ArrayList<String> shopKeyArrayList, Activity activity) {
@@ -68,7 +81,20 @@ public class RecyclerShopListAdapter extends RecyclerView.Adapter<ShopHolder> {
         inflater = activity.getLayoutInflater();
         currentLocation.setLatitude(sust.latitude);
         currentLocation.setLongitude(sust.longitude);
+        int i=0;
+        for(Shop s: shopArrayList) {
+            distances.add(distBetweenPoints(currentLocation, s.getLatLng()));
+            index.add(i);
+            i++;
+        }
+    }
 
+    public void sortByPrice() {
+        Collections.sort(index);
+    }
+
+    public void sortByDistance() {
+        Collections.sort(index, compareByDistance);
     }
 
     @Override
@@ -86,6 +112,7 @@ public class RecyclerShopListAdapter extends RecyclerView.Adapter<ShopHolder> {
 
     @Override
     public void onBindViewHolder(ShopHolder holder, int position) {
+        position = index.get(position);
         Shop shop = shopArrayList.get(position);
         String key = shopKeyArrayList.get(position);
 
@@ -94,7 +121,7 @@ public class RecyclerShopListAdapter extends RecyclerView.Adapter<ShopHolder> {
         holder.storeLocation.setText( shop.getStoreLocation());
         holder.productAvailable.setText("Available: " + shop.getProductQuantity());
         holder.productOffer.setText("Offer: " + shop.getProductOffers());
-        Glide.with(activity).load(shop.getImageUrl()).into(holder.productImage);
+        GlideApp.with(activity).load(shop.getImageUrl()).placeholder( starting.loading).into(holder.productImage);
         holder.productDescription.setText(shop.getProductDescription());
 
         holder.bookNow.setOnClickListener(e->{
@@ -119,7 +146,7 @@ public class RecyclerShopListAdapter extends RecyclerView.Adapter<ShopHolder> {
 
         return shopArrayList.size();
     }
-    public double distBetweenPoints(Location origin ,LatLng dest){
+    public double distBetweenPoints(Location origin ,iLatLng dest){
         Location endLocation=new Location("dest");
         endLocation.setLatitude(dest.latitude);
         endLocation.setLongitude(dest.longitude);

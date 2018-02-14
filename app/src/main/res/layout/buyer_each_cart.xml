@@ -36,7 +36,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/offer_each"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/price_each"
-        app:srcCompat="@drawable/angti" />
+        app:srcCompat="@drawable/loading001" />
 
     <TextView
         android:id="@+id/price_each"
