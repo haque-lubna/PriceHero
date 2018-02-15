@@ -3,6 +3,8 @@ package com.lubnasweety.pricehero;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,6 +13,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.view.View;
+import android.widget.EditText;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -27,11 +31,14 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.lubnasweety.pricehero.completed.PostFragment;
 
+import java.io.IOException;
+import java.util.List;
+
 
 public class MapsActivitySeller extends FragmentActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
-        LocationListener {
+        LocationListener  {
 
     public static final int REQUEST_LOCATION_CODE = 99;
 
@@ -49,6 +56,7 @@ public class MapsActivitySeller extends FragmentActivity implements OnMapReadyCa
     public  static LatLng buyerLatlng;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +71,35 @@ public class MapsActivitySeller extends FragmentActivity implements OnMapReadyCa
         }
         mapFragment.getMapAsync(this);
 
+
+
+    }
+
+    public void onClick(View v){
+       if(v.getId() == R.id.searchButton){
+        EditText searchText = (EditText) findViewById(R.id.searchText);
+        String location = searchText.getText().toString();
+        List<Address> addressList = null;
+        //MarkerOptions mo = new MarkerOptions();
+        if(!location.equals("")){
+            Geocoder geocoder = new Geocoder(this);
+            try {
+                addressList = geocoder.getFromLocationName(location,5);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            for(int i=0;i<addressList.size();i++){
+                Address myaddress = addressList.get(i);
+                LatLng latLng = new LatLng(myaddress.getLatitude(),myaddress.getLongitude());
+//                mo.position(latLng);
+//                mo.title("Searched location");
+//                mMap.addMarker(mo);
+                mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+
+            }
+
+        }
+    }
     }
 
     /**
@@ -93,6 +130,9 @@ public class MapsActivitySeller extends FragmentActivity implements OnMapReadyCa
             }
         });
     }
+
+
+
     protected synchronized void bulidGoogleApiClient() {
         client = new GoogleApiClient.Builder(this).addConnectionCallbacks(this).addOnConnectionFailedListener(this).addApi(LocationServices.API).build();
         client.connect();
@@ -161,7 +201,7 @@ public class MapsActivitySeller extends FragmentActivity implements OnMapReadyCa
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
         currentLocationmMarker = mMap.addMarker(markerOptions);
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomBy(10));
+        mMap.animateCamera(CameraUpdateFactory.zoomBy(15));
 
         if(client != null)
         {
@@ -171,4 +211,6 @@ public class MapsActivitySeller extends FragmentActivity implements OnMapReadyCa
     public void openPostFragment(){
         startActivity(new Intent(this, PostFragment.class));
     }
+
+
 }
