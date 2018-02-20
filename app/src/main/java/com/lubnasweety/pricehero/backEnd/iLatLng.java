@@ -1,10 +1,12 @@
 package com.lubnasweety.pricehero.backEnd;
 
+import java.io.Serializable;
+
 /**
  * Created by Asus on 2/14/2018.
  */
 
-public class iLatLng {
+public class iLatLng implements Serializable {
     double latitude, longitude;
 
     public iLatLng() {

@@ -116,8 +116,13 @@ public class PostFragment extends Fragment {
         StringBuffer sb = new StringBuffer();
 
         for (int i = 0; i < arr.length; i++) {
-            sb.append(Character.toUpperCase(arr[i].charAt(0)))
-                    .append(arr[i].substring(1)).append(" ");
+            if(arr[i].length()>=1) {
+                sb.append(Character.toUpperCase(arr[i].charAt(0)));
+                if(arr[i].length()>=2) {
+                    sb.append(arr[i].substring(1));
+                }
+                sb.append(" ");
+            }
         }
         return sb.toString().trim();
     }
@@ -161,8 +166,12 @@ public class PostFragment extends Fragment {
 
         btnSubmit.setOnClickListener(e->{
 
-            productNameText =  toTitleCase(productName.getText().toString().toLowerCase());
+            productNameText =  productName.getText().toString().toLowerCase();
+            if(productNameText.trim()!="") productNameText = toTitleCase(productNameText);
+
             productCategoryText = toTitleCase(productCategory.getText().toString().toLowerCase());
+            if(productCategoryText.trim()!="") productCategoryText = toTitleCase(productCategoryText);
+
             productDescriptionText = productDescription.getText().toString();
             storeNameText = storeName.getText().toString();
             storeLocationText = storeLocation.getText().toString();
