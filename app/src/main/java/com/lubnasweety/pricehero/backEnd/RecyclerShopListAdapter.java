@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.lubnasweety.pricehero.MapsActivity;
 import com.lubnasweety.pricehero.R;
 import com.lubnasweety.pricehero.completed.Booking;
 import com.lubnasweety.pricehero.completed.ItemDetails;
@@ -55,9 +56,9 @@ public class RecyclerShopListAdapter extends RecyclerView.Adapter<ShopHolder> {
     ArrayList<String> shopKeyArrayList;
     Activity activity;
     LayoutInflater inflater;
-    Location currentLocation= new Location("Fake Location");
-    //Location currentLocation=lastLocation;
-    iLatLng sust=new iLatLng(24.9227607,91.8272716);
+    //Location currentLocation= new Location("Current Location");
+    Location currentLocation= MapsActivity.lastlocation;
+    //iLatLng sust=new iLatLng(24.9227607,91.8272716);
 
     static ArrayList<Double> distances = new ArrayList<>();
     ArrayList<Integer> index = new ArrayList<>();
@@ -78,8 +79,8 @@ public class RecyclerShopListAdapter extends RecyclerView.Adapter<ShopHolder> {
         this.shopKeyArrayList = shopKeyArrayList;
         this.activity = activity;
         inflater = activity.getLayoutInflater();
-        currentLocation.setLatitude(sust.latitude);
-        currentLocation.setLongitude(sust.longitude);
+        //currentLocation.setLatitude(sust.latitude);
+        //currentLocation.setLongitude(sust.longitude);
         int i=0;
         for(Shop s: shopArrayList) {
             distances.add(distBetweenPoints(currentLocation, s.getLatLng()));

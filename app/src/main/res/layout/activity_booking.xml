@@ -18,6 +18,7 @@
         android:ems="10"
         android:hint="Enter the Quantity"
         android:inputType="number"
+        android:textAlignment="center"
         android:textColor="@color/White"
         android:textColorHint="@color/White"
         app:layout_constraintEnd_toEndOf="parent"
